@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>actionPost</title>
+    <link rel="shortcut icon" href="#">
+    <script src="../src/mind.js"></script>
+</head>
+<body>
+    <form>
+        <input type="text" name="username">
+        <input type="password" name="password">
+        <button type="button">Send</button>
+    </form>
+    <div id="status"></div>
+    <script>
+        var button = document.querySelector("button");
+		button.addEventListener('click', event => {
+			
+			actionPost('../../form/api/form', formSerialize('form'), function(response){
+                console.log(response);
+                appendItem('#status', response);
+            });
+		});
+        
+    </script>
+</body>
+</html>
