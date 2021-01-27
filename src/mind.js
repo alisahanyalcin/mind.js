@@ -65,3 +65,14 @@ function appendItem(element, value){
         });
     }
 }
+
+function clickItem(element, callback){
+    let buttons = document.querySelectorAll(element);
+    for(var i = 0; i<buttons.length; i++){
+        
+        buttons[i].addEventListener('click', () => {   
+            if(callback) callback(this.responseText);
+        });
+
+    };
+}
