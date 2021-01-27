@@ -11,18 +11,21 @@
     <form>
         <input type="text" name="username">
         <input type="password" name="password">
-        <button type="button">Send</button>
+        <button type="button">save 1</button>
+        <button type="button">save 2</button>
+        <a id="save" href="#">save 1</a>
+        <a id="save" href="#">save 2</a>
+        <p><a id="save" href="#">save 3</a></p>
     </form>
     <div id="status"></div>
     <script>
-        var button = document.querySelector("button");
-		button.addEventListener('click', event => {
-			
-			actionPost('../../form/api/form', formSerialize('form'), function(response){
+        clickItem('button, a#save', function(){
+            actionPost('../../form/api/form', formSerialize('form'), function(response){
                 console.log(response);
                 appendItem('#status', response);
             });
-		});
+           // console.log('Hello world');
+        });
         
     </script>
 </body>
