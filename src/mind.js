@@ -87,3 +87,41 @@ function keyupItem(element, callback){
 
     };
 }
+
+function hideItem(element, callback){
+    let elements = document.querySelectorAll(element);
+    for(var i = 0; i<elements.length; i++){
+        
+        if(elements[i] !== undefined){
+            elements[i].style.visibility = "hidden";
+            if(callback) callback(this);
+        }
+
+    };
+}
+
+function showItem(element, callback){
+    let elements = document.querySelectorAll(element);
+    for(var i = 0; i<elements.length; i++){
+      
+        if(elements[i] !== undefined){
+            elements[i].style.visibility = "visible";
+            if(callback) callback(this);
+        }
+        
+
+    };
+}
+
+function removeItem(element, callback){
+    let elements = document.querySelectorAll(element);
+    for(var i = 0; i<elements.length; i++){
+      
+        if(elements[i] !== undefined){
+            elements[i].remove();
+            if(callback) callback(this);
+        }
+        
+
+    };
+}
