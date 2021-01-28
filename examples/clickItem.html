@@ -17,9 +17,9 @@
     <div id="status"></div>
     <script>
         let text = 'Hello world';
-        clickItem('button, a#save', function(){
+        clickItem('button, a#save', function(e){
             appendItem('#status', text);
-            console.log(text);
+            console.log(e.innerText);
         });
         
     </script>
