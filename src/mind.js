@@ -70,8 +70,19 @@ function clickItem(element, callback){
     let buttons = document.querySelectorAll(element);
     for(var i = 0; i<buttons.length; i++){
         
-        buttons[i].addEventListener('click', () => {   
-            if(callback) callback(this.responseText);
+        buttons[i].addEventListener('click', (e) => {   
+            if(callback) callback(e.target);
+        });
+
+    };
+}
+
+function keyupItem(element, callback){
+    let elements = document.querySelectorAll(element);
+    for(var i = 0; i<elements.length; i++){
+        
+        elements[i].addEventListener('keyup', (e) => {   
+            if(callback) callback(e.target);
         });
 
     };
