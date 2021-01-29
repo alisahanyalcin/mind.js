@@ -128,8 +128,14 @@ function removeItem(element, callback){
 
 function redirect(url, delay=0, element=''){
 
-    let inter = null;
-    let elements = document.querySelectorAll(element);
+    let wait = 0,
+        inter = null,
+        elements = [];
+
+    if(element != ''){
+        wait = 1000;
+        elements = document.querySelectorAll(element);
+    } 
     
     inter = setInterval(function () {
         if(delay === 0){
@@ -149,6 +155,6 @@ function redirect(url, delay=0, element=''){
             }
         }
         delay--;
-    }, 1000);
+    }, wait);
     
 }
