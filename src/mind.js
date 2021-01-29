@@ -109,7 +109,6 @@ function showItem(element, callback){
             if(callback) callback(this);
         }
         
-
     };
 }
 
@@ -121,8 +120,7 @@ function removeItem(element, callback){
             elements[i].remove();
             if(callback) callback(this);
         }
-        
-
+    
     };
 }
 
