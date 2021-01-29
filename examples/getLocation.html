@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getLocation</title>
+    <link rel="shortcut icon" href="#">
+    <script src="../src/mind.js"></script>
+</head>
+<body>
+    <input type="text"><br>
+    <input id="key" type="text"><br>
+    <textarea id="key1" cols="30" rows="10"></textarea><br>
+    <p><textarea id="key1" cols="30" rows="10"></textarea></p>
+
+    <div id="status"></div>
+    <script>
+
+        getLocation('input, input#key, textarea#key1, #status');
+        
+        // getLocation('', function(position){
+        //    console.log(position.coords.latitude);
+        // });
+        
+        // getLocation('input, input#key, textarea#key1', function(position){
+        //    console.log(position.coords.latitude);
+        // });
+    </script>
+</body>
+</html>
