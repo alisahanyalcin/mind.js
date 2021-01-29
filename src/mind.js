@@ -1,7 +1,7 @@
 /**
  *
  * @package    mind.js
- * @version    Release: 1.0.5
+ * @version    Release: 1.0.6
  * @license    GPL3
  * @author     Ali YILMAZ <aliyilmaz.work@gmail.com>
  * @category   Javascript Framework, Basic web development kit.
@@ -155,4 +155,34 @@ function redirect(url, delay=0, element=''){
         delay--;
     }, wait);
     
+}
+
+function getLocation(element='', callback) {
+
+    let elements = [];
+    if(element != ''){
+        elements = document.querySelectorAll(element);
+    }
+    if (navigator.geolocation) {
+        
+        navigator.geolocation.getCurrentPosition(function(position){
+            
+            let coordinates = position.coords.latitude+','+position.coords.longitude;
+            
+            if(elements.length >= 1){
+        
+                elements.forEach(function(element) {
+                    if(element.value === undefined){
+                        element.textContent = coordinates;
+                    } else {
+                        element.value = coordinates;
+                    }
+                });
+            } 
+
+            if(callback) callback(position);
+        });
+    } else { 
+        console.log("Geolocation is not supported by this browser.");
+    }
 }
