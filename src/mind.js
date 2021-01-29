@@ -125,3 +125,30 @@ function removeItem(element, callback){
 
     };
 }
+
+function redirect(url, delay=0, element=''){
+
+    let inter = null;
+    let elements = document.querySelectorAll(element);
+    
+    inter = setInterval(function () {
+        if(delay === 0){
+            clearInterval(inter);
+            location.replace(url);
+        } else {
+            
+            if(elements.length >= 1){
+
+                elements.forEach(function(element) {
+                    if(element.value === undefined){
+                        element.textContent = delay;
+                    } else {
+                        element.value = delay;
+                    }
+                });
+            }
+        }
+        delay--;
+    }, 1000);
+    
+}
