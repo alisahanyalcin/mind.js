@@ -52,15 +52,29 @@ function actionGet(url, callback) {
     
 } 
 
+function changeContent(element, value){
+    let elements = document.querySelectorAll(element);
+    if(elements.length >= 1){
+
+        elements.forEach(function(element) {
+            if(element.value === undefined){
+                element.innerHTML = value;
+            } else {
+                element.value = value;
+            }
+        });
+    }
+}
+
 function appendItem(element, value){
     let elements = document.querySelectorAll(element);
     if(elements.length >= 1){
 
         elements.forEach(function(element) {
             if(element.value === undefined){
-                element.textContent = value;
+                element.innerHTML += value;
             } else {
-                element.value = value;
+                element.value += value;
             }
         });
     }
@@ -127,12 +141,10 @@ function removeItem(element, callback){
 function redirect(url, delay=0, element=''){
 
     let wait = 0,
-        inter = null,
-        elements = [];
+        inter = null;
 
     if(element != ''){
         wait = 1000;
-        elements = document.querySelectorAll(element);
     } 
     
     inter = setInterval(function () {
@@ -140,17 +152,7 @@ function redirect(url, delay=0, element=''){
             clearInterval(inter);
             location.replace(url);
         } else {
-            
-            if(elements.length >= 1){
-
-                elements.forEach(function(element) {
-                    if(element.value === undefined){
-                        element.textContent = delay;
-                    } else {
-                        element.value = delay;
-                    }
-                });
-            }
+            changeContent(element, delay);
         }
         delay--;
     }, wait);
@@ -159,26 +161,13 @@ function redirect(url, delay=0, element=''){
 
 function getLocation(element='', callback) {
 
-    let elements = [];
-    if(element != ''){
-        elements = document.querySelectorAll(element);
-    }
     if (navigator.geolocation) {
         
         navigator.geolocation.getCurrentPosition(function(position){
             
             let coordinates = position.coords.latitude+','+position.coords.longitude;
             
-            if(elements.length >= 1){
-        
-                elements.forEach(function(element) {
-                    if(element.value === undefined){
-                        element.textContent = coordinates;
-                    } else {
-                        element.value = coordinates;
-                    }
-                });
-            } 
+            changeContent(element, coordinates);
 
             if(callback) callback(position);
         });
