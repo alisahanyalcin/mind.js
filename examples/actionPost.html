@@ -22,7 +22,7 @@
         clickItem('button, a#save', function(){
             actionPost('../../form/api/form', formSerialize('form'), function(response){
                 console.log(response);
-                appendItem('#status', response);
+                changeContent('#status', response);
             });
            // console.log('Hello world');
         });

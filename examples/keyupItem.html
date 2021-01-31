@@ -16,7 +16,7 @@
     <div id="status"></div>
     <script>
         keyupItem('input, input#key, textarea#key1', function(e){
-            appendItem('#status', e.value);
+            changeContent('#status', e.value);
             console.log(e.value);
         });
         

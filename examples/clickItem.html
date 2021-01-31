@@ -18,7 +18,7 @@
     <script>
         let text = 'Hello world';
         clickItem('button, a#save', function(e){
-            appendItem('#status', text);
+            changeContent('#status', text);
             console.log(e.innerText);
         });
         
