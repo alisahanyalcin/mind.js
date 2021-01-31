@@ -186,3 +186,16 @@ function getLocation(element='', callback) {
         console.log("Geolocation is not supported by this browser.");
     }
 }
+
+function formReset(element, callback){
+
+    let elements = document.querySelectorAll(element);
+    
+    if(elements.length >= 1){
+
+        elements.forEach(function(element) {
+            element.reset();
+        });
+    }
+    if(callback) callback(this);
+}
