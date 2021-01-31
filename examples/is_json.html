@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>is_json</title>
+    <link rel="shortcut icon" href="#">
+    <script src="../src/mind.js"></script>
+</head>
+<body>
+    <script>
+        let item = '{"status":"error","messages":{"username":{"required":"Kullan\u0131c\u0131 ad\u0131 belirtilmelidir."},"password":{"min-char":"Parola minumum 6 karakter uzunlu\u011funda olmal\u0131d\u0131r."},"email":{"email":"Ge\u00e7erli bir email adresi belirtilmelidir."}}}';
+
+        if(is_json(item)){
+            console.log('Bu bir json verisidir.');
+        } else {
+            console.log('Bu bir json verisi değildir.');
+        }
+
+    </script>
+</body>
+</html>

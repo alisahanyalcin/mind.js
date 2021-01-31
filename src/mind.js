@@ -1,7 +1,7 @@
 /**
  *
  * @package    mind.js
- * @version    Release: 1.0.9
+ * @version    Release: 1.1.0
  * @license    GPL3
  * @author     Ali YILMAZ <aliyilmaz.work@gmail.com>
  * @category   Javascript Framework, Basic web development kit.
@@ -195,4 +195,46 @@ function is_object(item){
     } else {
         return false;
     }
+}
+
+function is_array(obj){
+    if(Array.isArray(obj)){
+        return true;
+    } else {
+        return false;
+
+    }
+}
+
+function is_json(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+
+function foreachArray(object, callback){
+    
+    if(is_json(object)){
+        object = JSON.parse(object);
+    }
+
+    if(is_array(object)){
+        object = Object.assign({}, object);
+    }
+
+    if(is_object(object)){
+
+        for(var prop in object) {
+            if(object.hasOwnProperty(prop)) {
+                callback(prop, object[prop]);
+            }
+        }
+
+    } else {
+        console.log('Only arrays, objects and json can be processed.');
+    }
+
 }
