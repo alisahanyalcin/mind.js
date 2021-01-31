@@ -199,3 +199,11 @@ function formReset(element, callback){
     }
     if(callback) callback(this);
 }
+
+function is_object(item){
+    if( Object.prototype.toString.call(item) === '[object Object]' ){
+        return true;
+    } else {
+        return false;
+    }
+}
