@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>charCounter</title>
+    <link rel="shortcut icon" href="#">
+    <script src="../src/mind.js"></script>
+</head>
+<body>
+    <input type="text"><br>
+    <input id="key" type="text"><br>
+    <textarea id="key1" cols="30" rows="10"></textarea><br>
+    <p><textarea id="key1" cols="30" rows="10"></textarea></p>
+
+    Kalan karakter: <strong id="status"></strong>
+    <script>
+        let scheme = {'element':'input, input#key, textarea#key1', 'limit':10};
+        charCounter(scheme, function(e){
+            changeContent('#status', e);
+        });
+        
+    </script>
+</body>
+</html>

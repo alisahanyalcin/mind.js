@@ -1,13 +1,14 @@
 /**
  *
  * @package    mind.js
- * @version    Release: 1.1.0
+ * @version    Release: 1.1.1
  * @license    GPL3
  * @author     Ali YILMAZ <aliyilmaz.work@gmail.com>
  * @category   Javascript Framework, Basic web development kit.
  * @link       https://github.com/aliyilmaz/mind.js
  *
  */
+
 function formSerialize(element){
     var elements = document.querySelector(element);
     var formData = new FormData(elements);
@@ -237,4 +238,30 @@ function foreachArray(object, callback){
         console.log('Only arrays, objects and json can be processed.');
     }
 
+}
+
+function itemSetAttr(element, name, value){
+    let elements = document.querySelectorAll(element);
+    for(var i = 0; i<elements.length; i++){
+        elements[i].setAttribute(name, value);
+    };
+}
+
+function charCounter(scheme, callback) {
+
+    let elements = document.querySelectorAll(scheme.element);
+    for (var i = 0; i < elements.length; i++){
+        
+        itemSetAttr(scheme.element, 'maxlength', scheme.limit);
+        
+        elements[i].addEventListener('keyup', (e) => {   
+            totalChar = e.target.value.length;
+            if(totalChar <= scheme.limit){
+                if (callback) callback(scheme.limit-totalChar);
+            }
+        });
+
+    };
+    
+    if (callback) callback(scheme.limit);
 }
