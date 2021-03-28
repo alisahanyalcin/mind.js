@@ -9,21 +9,18 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 ## Kullanım
 İndirdiğiniz zip dosyasında bulunan `src` alt dizini içindeki mind.js dosyasını kullanmanız gerekmektedir.
 
-##### Örnek
-
     <script src="https://github.com/aliyilmaz/mind.js/raw/main/src/mind.js"></script>
 
 
 ## Metotlar
 
-##### Sistem
+*   Sistem
+    * [getLocation()](https://github.com/aliyilmaz/mind.js#getlocation)
+    * [actionGet()](https://github.com/aliyilmaz/mind.js#actionget)
+    * [actionPost()](https://github.com/aliyilmaz/mind.js#actionpost)
+    * [redirect()](https://github.com/aliyilmaz/mind.js#redirect)
 
-* [getLocation()](https://github.com/aliyilmaz/mind.js#getlocation)
-* [actionGet()](https://github.com/aliyilmaz/mind.js#actionget)
-* [actionPost()](https://github.com/aliyilmaz/mind.js#actionpost)
-* [redirect()](https://github.com/aliyilmaz/mind.js#redirect)
-
-##### Element
+#### Element
 
 * [appendItem()](https://github.com/aliyilmaz/mind.js#appenditem)
 * [changeContent()](https://github.com/aliyilmaz/mind.js#changecontent)
@@ -32,13 +29,13 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [showItem()](https://github.com/aliyilmaz/mind.js#showitem)
 * removeItem()
 
-##### Olaylar
+#### Olaylar
 
 * clickItem()
 * keyupItem()
 * formReset()
 
-##### Doğrulama
+#### Doğrulama
 
 * is_array()
 * is_json()
