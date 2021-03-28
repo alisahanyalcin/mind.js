@@ -26,7 +26,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 ##### Element
 
 * [appendItem()](https://github.com/aliyilmaz/mind.js#appenditem)
-* changeContent()
+* [changeContent()](https://github.com/aliyilmaz/mind.js#changecontent)
 * itemSetAttr()
 * hideItem()
 * showItem()
@@ -205,3 +205,28 @@ Belirtilen element(ler)'e, element içeriğinin sonuna içerik eklemeye yarar. E
 
 ---
 
+## changeContent()
+
+Belirtilen element(ler)'in içeriğini, belirtilen içerikle değiştirmeye yarar. Element eğer bir form elemanıysa `value` olarak güncelleme yapar, eğer başka tür bir elementse içeriğine `innerHTML` yaklaşımıyla değiştirir.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>changeContent</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <div id="status"></div>
+        <span id="status"></span>
+        <hr>
+        <div id="status1"></div>
+        <script>
+            changeContent("#status", 'Hello World!');
+            changeContent("#status1", 'Hello World! 1');
+            changeContent("#status", 'Hello World! 1');
+        </script>
+    </body>
+    </html>
