@@ -12,14 +12,14 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
     <script src="https://github.com/aliyilmaz/mind.js/raw/main/src/mind.js"></script>
 
 
-# Metotlar
+## Metotlar
 
-## Sistem
+##### Sistem
 
-####  [getLocation()](https://github.com/aliyilmaz/mind.js#getlocation)
-####  [actionGet()](https://github.com/aliyilmaz/mind.js#actionget)
-####  [actionPost()](https://github.com/aliyilmaz/mind.js#actionpost)
-####  [redirect()](https://github.com/aliyilmaz/mind.js#redirect)
+* [getLocation()](https://github.com/aliyilmaz/mind.js#getlocation)
+* [actionGet()](https://github.com/aliyilmaz/mind.js#actionget)
+* [actionPost()](https://github.com/aliyilmaz/mind.js#actionpost)
+* [redirect()](https://github.com/aliyilmaz/mind.js#redirect)
 
 ##### Element
 
@@ -28,7 +28,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [itemSetAttr()](https://github.com/aliyilmaz/mind.js#itemsetattr)
 * [hideItem()](https://github.com/aliyilmaz/mind.js#hideitem)
 * [showItem()](https://github.com/aliyilmaz/mind.js#showitem)
-* removeItem()
+* [removeItem()](https://github.com/aliyilmaz/mind.js#removeitem)
 
 ##### Olaylar
 
@@ -316,6 +316,37 @@ Belirtilen element(ler)i göstermeye yarar.
             hideItem('input, input#key, textarea#key1');
             showItem('input, input#key, textarea#key1', function(e){
                 changeContent('#status', 'Öğeler gösterildi.');
+            });
+        </script>
+    </body>
+    </html>
+
+---
+
+## removeItem()
+
+Belirtilen element(ler)i kaldırmaya yarar.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>removeItem</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <input type="text"><br>
+        <input id="key" type="text"><br>
+        <textarea id="key1" cols="30" rows="10"></textarea><br>
+        <p><textarea id="key1" cols="30" rows="10"></textarea></p>
+
+        <div id="status"></div>
+        <script>
+            // removeItem('input, input#key, textarea#key1, br, p');
+            removeItem('input, input#key, textarea#key1, br, p', function(e){
+                changeContent('#status', 'Öğeler silindi.');
             });
         </script>
     </body>
