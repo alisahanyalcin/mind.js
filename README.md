@@ -29,7 +29,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [changeContent()](https://github.com/aliyilmaz/mind.js#changecontent)
 * [itemSetAttr()](https://github.com/aliyilmaz/mind.js#itemsetattr)
 * [hideItem()](https://github.com/aliyilmaz/mind.js#hideitem)
-* showItem()
+* [showItem()](https://github.com/aliyilmaz/mind.js#showitem)
 * removeItem()
 
 ##### Olaylar
@@ -292,3 +292,33 @@ Belirtilen element(ler)i gizlemeye yarar.
     </body>
     </html>
 
+---
+
+## showItem()
+
+Belirtilen element(ler)i göstermeye yarar.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>showItem</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <input type="text"><br>
+        <input id="key" type="text"><br>
+        <textarea id="key1" cols="30" rows="10"></textarea><br>
+        <p><textarea id="key1" cols="30" rows="10"></textarea></p>
+
+        <div id="status"></div>
+        <script>
+            hideItem('input, input#key, textarea#key1');
+            showItem('input, input#key, textarea#key1', function(e){
+                changeContent('#status', 'Öğeler gösterildi.');
+            });
+        </script>
+    </body>
+    </html>
