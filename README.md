@@ -32,7 +32,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 ##### Olaylar
 
-* clickItem()
+* [clickItem()](https://github.com/aliyilmaz/mind.js#clickitem)
 * keyupItem()
 * formReset()
 
@@ -348,6 +348,38 @@ Belirtilen element(ler)i kaldırmaya yarar.
             removeItem('input, input#key, textarea#key1, br, p', function(e){
                 changeContent('#status', 'Öğeler silindi.');
             });
+        </script>
+    </body>
+    </html>
+
+## clickItem()
+
+Belirtilen element(ler)in tıklamasını yakalamaya yarar.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>clickItem</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <button type="button">click 1</button>
+        <button type="button">click 2</button>
+        <a id="save" href="#">save 1</a>
+        <a id="save" href="#">save 2</a>
+        <p><a id="save" href="#">save 3</a></p>
+
+        <div id="status"></div>
+        <script>
+            let text = 'Hello world';
+            clickItem('button, a#save', function(e){
+                changeContent('#status', text);
+                console.log(e.innerText);
+            });
+            
         </script>
     </body>
     </html>
