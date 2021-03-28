@@ -25,7 +25,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 ##### Element
 
-* appendItem()
+* [appendItem()](https://github.com/aliyilmaz/mind.js#appenditem)
 * changeContent()
 * itemSetAttr()
 * hideItem()
@@ -171,6 +171,34 @@ Ziyaretçiyi belirtilen adrese yönlendirmeye yarar. Üç parametre alır. İlk 
             // redirect('http://google.com');
             // redirect('http://google.com', 5);
             redirect('http://google.com', 5, 'h2, input, input#key, textarea#key1');
+        </script>
+    </body>
+    </html>
+
+---
+
+## appendItem()
+
+Belirtilen element(ler)'e içerik eklemeye yarar. Element eğer bir form elemanıysa `value` olarak atama yapar, eğer başka tür bir elementse içeriğine `innerHTML` yaklaşımıyla atama yapar.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>appendItem</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <div id="status"></div>
+        <span id="status"></span>
+        <hr>
+        <div id="status1"></div>
+        <script>
+            appendItem("#status", 'Hello World!<br>');
+            appendItem("#status1", 'Hello World! 1');
+            appendItem("#status", 'Hello World! 1');
         </script>
     </body>
     </html>
