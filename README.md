@@ -179,7 +179,7 @@ Ziyaretçiyi belirtilen adrese yönlendirmeye yarar. Üç parametre alır. İlk 
 
 ## appendItem()
 
-Belirtilen element(ler)'e içerik eklemeye yarar. Element eğer bir form elemanıysa `value` olarak atama yapar, eğer başka tür bir elementse içeriğine `innerHTML` yaklaşımıyla atama yapar.
+Belirtilen element(ler)'e, element içeriğinin sonuna içerik eklemeye yarar. Element eğer bir form elemanıysa `value` olarak atama yapar, eğer başka tür bir elementse içeriğine `innerHTML` yaklaşımıyla atama yapar.
 
     <!DOCTYPE html>
     <html lang="en">
