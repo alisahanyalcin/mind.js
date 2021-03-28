@@ -12,14 +12,14 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
     <script src="https://github.com/aliyilmaz/mind.js/raw/main/src/mind.js"></script>
 
 
-## Metotlar
+# Metotlar
 
-##### Sistem
+## Sistem
 
-*  [getLocation()](https://github.com/aliyilmaz/mind.js#getlocation)
-*  [actionGet()](https://github.com/aliyilmaz/mind.js#actionget)
-*  [actionPost()](https://github.com/aliyilmaz/mind.js#actionpost)
-*  [redirect()](https://github.com/aliyilmaz/mind.js#redirect)
+####  [getLocation()](https://github.com/aliyilmaz/mind.js#getlocation)
+####  [actionGet()](https://github.com/aliyilmaz/mind.js#actionget)
+####  [actionPost()](https://github.com/aliyilmaz/mind.js#actionpost)
+####  [redirect()](https://github.com/aliyilmaz/mind.js#redirect)
 
 ##### Element
 
