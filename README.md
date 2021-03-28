@@ -44,7 +44,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 ---
 
-### getLocation()
+## getLocation()
 
 Ziyaretçi konumunu enlem,boylam söz diziminde belirtilen elementlere veya ikinci parametrede belirtilen fonksiyon içine atamaya yarar. 
 
@@ -81,7 +81,7 @@ Ziyaretçi konumunu enlem,boylam söz diziminde belirtilen elementlere veya ikin
 
 --- 
 
-### actionGet()
+## actionGet()
 
 Belirtilen adresin varış noktasındaki sayfanın kaynak kodunu elde ederek, ikinci parametrede belirtilen fonksiyonun içine atamaya yarar.
 
