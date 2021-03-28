@@ -14,13 +14,14 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 ## Metotlar
 
-*   Sistem
-    * [getLocation()](https://github.com/aliyilmaz/mind.js#getlocation)
-    * [actionGet()](https://github.com/aliyilmaz/mind.js#actionget)
-    * [actionPost()](https://github.com/aliyilmaz/mind.js#actionpost)
-    * [redirect()](https://github.com/aliyilmaz/mind.js#redirect)
+##### Sistem
 
-#### Element
+###### [getLocation()](https://github.com/aliyilmaz/mind.js#getlocation)
+###### [actionGet()](https://github.com/aliyilmaz/mind.js#actionget)
+###### [actionPost()](https://github.com/aliyilmaz/mind.js#actionpost)
+###### [redirect()](https://github.com/aliyilmaz/mind.js#redirect)
+
+##### Element
 
 * [appendItem()](https://github.com/aliyilmaz/mind.js#appenditem)
 * [changeContent()](https://github.com/aliyilmaz/mind.js#changecontent)
@@ -29,13 +30,13 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [showItem()](https://github.com/aliyilmaz/mind.js#showitem)
 * removeItem()
 
-#### Olaylar
+##### Olaylar
 
 * clickItem()
 * keyupItem()
 * formReset()
 
-#### Doğrulama
+##### Doğrulama
 
 * is_array()
 * is_json()
