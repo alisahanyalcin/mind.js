@@ -33,7 +33,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 ##### Olaylar
 
 * [clickItem()](https://github.com/aliyilmaz/mind.js#clickitem)
-* keyupItem()
+* [keyupItem()](https://github.com/aliyilmaz/mind.js#keyupitem)
 * formReset()
 
 ##### Doğrulama
@@ -380,6 +380,38 @@ Belirtilen element(ler)in tıklamasını yakalamaya yarar.
             clickItem('button, a#save', function(e){
                 changeContent('#status', text);
                 console.log(e.innerText);
+            });
+            
+        </script>
+    </body>
+    </html>
+
+---
+
+## keyupItem()
+
+Belirtilen form element(ler)inde, basılan klavye tuşlarını yakalamaya yarar.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>keyupItem</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <input type="text"><br>
+        <input id="key" type="text"><br>
+        <textarea id="key1" cols="30" rows="10"></textarea><br>
+        <p><textarea id="key1" cols="30" rows="10"></textarea></p>
+
+        <div id="status"></div>
+        <script>
+            keyupItem('input, input#key, textarea#key1', function(e){
+                changeContent('#status', e.value);
+                console.log(e.value);
             });
             
         </script>
