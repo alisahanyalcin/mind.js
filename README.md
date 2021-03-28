@@ -352,6 +352,8 @@ Belirtilen element(ler)i kaldırmaya yarar.
     </body>
     </html>
 
+---
+
 ## clickItem()
 
 Belirtilen element(ler)in tıklamasını yakalamaya yarar.
