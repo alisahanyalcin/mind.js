@@ -28,7 +28,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [appendItem()](https://github.com/aliyilmaz/mind.js#appenditem)
 * [changeContent()](https://github.com/aliyilmaz/mind.js#changecontent)
 * [itemSetAttr()](https://github.com/aliyilmaz/mind.js#itemsetattr)
-* hideItem()
+* [hideItem()](https://github.com/aliyilmaz/mind.js#hideitem)
 * showItem()
 * removeItem()
 
