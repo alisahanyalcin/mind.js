@@ -231,7 +231,8 @@ Belirtilen element(ler)'in içeriğini, belirtilen içerikle değiştirmeye yara
     </body>
     </html>
 
-    ---
+    
+---
 
 ## itemSetAttr()
 
