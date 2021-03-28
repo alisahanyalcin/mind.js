@@ -207,7 +207,7 @@ Belirtilen element(ler)'e, element içeriğinin sonuna içerik eklemeye yarar. E
 
 ## changeContent()
 
-Belirtilen element(ler)'in içeriğini, belirtilen içerikle değiştirmeye yarar. Element eğer bir form elemanıysa `value` olarak güncelleme yapar, eğer başka tür bir elementse içeriğine `innerHTML` yaklaşımıyla değiştirir.
+Belirtilen element(ler)'in içeriğini, belirtilen içerikle değiştirmeye yarar. Element eğer bir form elemanıysa `value` olarak güncelleme yapar, eğer başka tür bir elementse içeriğini `innerHTML` yaklaşımıyla değiştirir.
 
     <!DOCTYPE html>
     <html lang="en">
