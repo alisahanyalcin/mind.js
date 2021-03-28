@@ -263,3 +263,32 @@ HTML element(ler)ine alt özellik belirtmeye yarar.
 
 ---
 
+## hideItem()
+
+Belirtilen element(ler)i gizlemeye yarar.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>hideItem</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <input type="text"><br>
+        <input id="key" type="text"><br>
+        <textarea id="key1" cols="30" rows="10"></textarea><br>
+        <p><textarea id="key1" cols="30" rows="10"></textarea></p>
+
+        <div id="status"></div>
+        <script>
+            // hideItem('input, input#key, textarea#key1, br, p');
+            hideItem('input, input#key, textarea#key1, br, p', function(e){
+                changeContent('#status', 'Öğeler gizlendi.');
+            });
+        </script>
+    </body>
+    </html>
+
