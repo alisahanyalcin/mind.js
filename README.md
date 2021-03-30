@@ -1,4 +1,4 @@
-# mindjs nedir?
+# mind.js nedir?
 
 mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proje arayüzlerinde gerek duyulan javascript ihtiyaçlarını, geliştirici deneyimini iyileştirerek sunmayı amaçlar. 
 
