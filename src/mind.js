@@ -1,7 +1,7 @@
 /**
  *
  * @package    mind.js
- * @version    Release: 1.1.1
+ * @version    Release: 1.1.2
  * @license    GPL3
  * @author     Ali YILMAZ <aliyilmaz.work@gmail.com>
  * @category   Javascript Framework, Basic web development kit.
@@ -9,15 +9,10 @@
  *
  */
 
-function formSerialize(element){
-    var elements = document.querySelector(element);
-    var formData = new FormData(elements);
-    return formData;
-}
+function actionPost(url, element, callback) {
 
-function actionPost(url, data, callback) {
-
-    var xhttp = new XMLHttpRequest();
+    const xhttp = new XMLHttpRequest();
+    const data = new FormData(document.querySelector(element));
 
     // Set POST method and ajax file path
     xhttp.open("POST", url, true);
@@ -32,7 +27,7 @@ function actionPost(url, data, callback) {
 
     // Send request with data
     xhttp.send(data);
-    
+
 } 
 
 function actionGet(url, callback) {

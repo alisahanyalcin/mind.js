@@ -20,7 +20,7 @@
     <div id="status"></div>
     <script>
         clickItem('button, a#save', function(){
-            actionPost('../../form/api/form', formSerialize('form'), function(response){
+            actionPost('../../form/api/form', 'form', function(response){
                 console.log(response);
                 changeContent('#status', response);
             });

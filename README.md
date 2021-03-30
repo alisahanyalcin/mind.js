@@ -109,7 +109,7 @@ Belirtilen adresin varış noktasındaki sayfanın kaynak kodunu elde ederek, ik
 
 ## actionPost()
 
-Belirtilen adrese, belirlenen verileri göndermeye, ikinci parametrede ise yanıtını fonksiyonun içine atamaya yarar.
+Belirtilen adrese, belirtilen form verilerini göndermeye yarar, üçüncü parametre ise yanıtı fonksiyonun içine atamayı sağlar.
 
     <!DOCTYPE html>
     <html lang="en">
@@ -133,11 +133,10 @@ Belirtilen adrese, belirlenen verileri göndermeye, ikinci parametrede ise yanı
         <div id="status"></div>
         <script>
             clickItem('button, a#save', function(){
-                actionPost('../../form/api/form', formSerialize('form'), function(response){
+                actionPost('../../form/api/form', 'form', function(response){
                     console.log(response);
                     changeContent('#status', response);
                 });
-            // console.log('Hello world');
             });
             
         </script>
