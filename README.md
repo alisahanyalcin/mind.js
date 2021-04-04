@@ -34,7 +34,8 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 * [clickItem()](https://github.com/aliyilmaz/mind.js#clickitem)
 * [keyupItem()](https://github.com/aliyilmaz/mind.js#keyupitem)
-* formReset()
+* [formReset()](https://github.com/aliyilmaz/mind.js#formreset)
+* [charCounter()](https://github.com/aliyilmaz/mind.js#charcounter)
 
 ##### Doğrulama
 
@@ -411,6 +412,85 @@ Belirtilen form element(ler)inde, basılan klavye tuşlarını yakalamaya yarar.
             keyupItem('input, input#key, textarea#key1', function(e){
                 changeContent('#status', e.value);
                 console.log(e.value);
+            });
+            
+        </script>
+    </body>
+    </html>
+
+---
+
+## formReset()
+
+Belirtilen form'un tüm alanlarını temizlemek için kullanılır.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>formReset</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <form id="example-1">
+            <input type="text" name="username">
+            <input type="password" name="password">
+            <button type="button">reset 1</button>
+            <button type="button">reset 2</button>
+            <a id="reset" href="#">reset 3</a>
+            <a id="reset" href="#">reset 4</a>
+            <p><a id="reset" href="#">reset 5</a></p>
+        </form>
+        <form id="example-2">
+            <input type="text" name="username">
+            <input type="password" name="password">
+            <button type="button">reset 7</button>
+            <button type="button">reset 8</button>
+            <a id="reset" href="#">reset 9</a>
+            <a id="reset" href="#">reset 10</a>
+            <p><a id="reset" href="#">reset 11</a></p>
+        </form>
+        <script>
+            clickItem('button, a#reset', function(){
+                formReset('form');
+                // formReset('form#example-1, form#example-2');
+                // formReset('form#example-1, form#example-2', function(){
+                //     console.log('Formlar temizlendi');
+                // });
+            });
+            
+        </script>
+    </body>
+    </html>
+
+---
+
+## charCounter()
+
+Belirtilen yazı yazma alan(lar)ında, belirtilen karakter uzunluğunda karakter belirtilmesini sağlar, girilen her karakter belirtilen karakter uzunluğundan düşülür ve yine belirtilen elementte kaç karakter daha yazılabileceği gösterilir.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>charCounter</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <input type="text"><br>
+        <input id="key" type="text"><br>
+        <textarea id="key1" cols="30" rows="10"></textarea><br>
+        <p><textarea id="key1" cols="30" rows="10"></textarea></p>
+
+        Kalan karakter: <strong id="status"></strong>
+        <script>
+            let scheme = {'element':'input, input#key, textarea#key1', 'limit':10};
+            charCounter(scheme, function(e){
+                changeContent('#status', e);
             });
             
         </script>
