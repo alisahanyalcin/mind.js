@@ -20,6 +20,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [actionGet()](https://github.com/aliyilmaz/mind.js#actionget)
 * [actionPost()](https://github.com/aliyilmaz/mind.js#actionpost)
 * [redirect()](https://github.com/aliyilmaz/mind.js#redirect)
+* [listening()](https://github.com/aliyilmaz/mind.js#listening)
 
 ##### Element
 
@@ -43,6 +44,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [is_array()](https://github.com/aliyilmaz/mind.js#is_array)
 * [is_json()](https://github.com/aliyilmaz/mind.js#is_json)
 * [is_object()](https://github.com/aliyilmaz/mind.js#is_object)
+* [internet()](https://github.com/aliyilmaz/mind.js#internet)
 
 ---
 
@@ -170,6 +172,56 @@ Ziyaretçiyi belirtilen adrese yönlendirmeye yarar. Üç parametre alır. İlk 
             // redirect('http://google.com');
             // redirect('http://google.com', 5);
             redirect('http://google.com', 5, 'h2, input, input#key, textarea#key1');
+        </script>
+    </body>
+    </html>
+
+---
+
+## listening()
+
+Belirtilen kodların gerçek zamanlı olarak çalışmasını sağlar.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>listening</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <h4>Gerçek zamanlı</h4>
+        <div id="real-time"></div>
+        <hr>
+        <h4>Belirli aralıkta (5 saniyede bir)</h4>
+        <div id="pedding-time"></div>
+        <script>
+            
+            listening(()=>{
+
+                if(internet()){
+                    itemSetAttr('#real-time', 'style', 'color:green;');
+                    changeContent('#real-time', 'İnternet bağlantısı var');
+                } else {
+                    itemSetAttr('#real-time', 'style', 'color:red;');
+                    changeContent('#real-time', 'İnternet bağlantısı yok');
+                }
+
+            });
+
+            listening(()=>{
+
+                if(internet()){
+                    itemSetAttr('#pedding-time', 'style', 'color:green;');
+                    changeContent('#pedding-time', 'İnternet bağlantısı var');
+                } else {
+                    itemSetAttr('#pedding-time', 'style', 'color:red;');
+                    changeContent('#pedding-time', 'İnternet bağlantısı yok');
+                }
+
+            }, 5000);
         </script>
     </body>
     </html>
@@ -587,6 +639,41 @@ Belirtilen verinin nesne türünde olup olmadığını kontrol etmeye yarar.
         </script>
     </body>
     </html>
+
+---
+
+## internet()
+
+İnternet bağlantısının olup olmadığını öğrenmek için kullanılır.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>internet</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <div id="status"></div>
+        <script>
+            listening(()=>{
+
+                if(internet()){
+                    itemSetAttr('#status', 'style', 'color:green;');
+                    changeContent('#status', 'İnternet bağlantısı var');
+                } else {
+                    itemSetAttr('#status', 'style', 'color:red;');
+                    changeContent('#status', 'İnternet bağlantısı yok');
+                }
+
+            });
+        </script>
+    </body>
+    </html>
+
+
 
 ---
 

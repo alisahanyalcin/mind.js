@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>listening</title>
+    <link rel="shortcut icon" href="#">
+    <script src="../src/mind.js"></script>
+</head>
+<body>
+    <h4>Gerçek zamanlı</h4>
+    <div id="real-time"></div>
+    <hr>
+    <h4>Belirli aralıkta (5 saniyede bir)</h4>
+    <div id="pedding-time"></div>
+    <script>
+        
+        listening(()=>{
+
+            if(internet()){
+                itemSetAttr('#real-time', 'style', 'color:green;');
+                changeContent('#real-time', 'İnternet bağlantısı var');
+            } else {
+                itemSetAttr('#real-time', 'style', 'color:red;');
+                changeContent('#real-time', 'İnternet bağlantısı yok');
+            }
+
+        });
+
+        listening(()=>{
+
+            if(internet()){
+                itemSetAttr('#pedding-time', 'style', 'color:green;');
+                changeContent('#pedding-time', 'İnternet bağlantısı var');
+            } else {
+                itemSetAttr('#pedding-time', 'style', 'color:red;');
+                changeContent('#pedding-time', 'İnternet bağlantısı yok');
+            }
+
+        }, 5000);
+    </script>
+</body>
+</html>
