@@ -180,7 +180,7 @@ Ziyaretçiyi belirtilen adrese yönlendirmeye yarar. Üç parametre alır. İlk 
 
 ## listening()
 
-Belirtilen kodların gerçek zamanlı olarak çalışmasını sağlar.
+Belirtilen kodların gerçek zamanlı veya belirli aralıklarla çalışmasını sağlar.
 
     <!DOCTYPE html>
     <html lang="en">
