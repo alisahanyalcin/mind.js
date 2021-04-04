@@ -36,6 +36,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [keyupItem()](https://github.com/aliyilmaz/mind.js#keyupitem)
 * [formReset()](https://github.com/aliyilmaz/mind.js#formreset)
 * [charCounter()](https://github.com/aliyilmaz/mind.js#charcounter)
+* [foreachArray()](https://github.com/aliyilmaz/mind.js#foreacharray)
 
 ##### Doğrulama
 
@@ -583,6 +584,71 @@ Belirtilen verinin nesne türünde olup olmadığını kontrol etmeye yarar.
                 console.log('Bu bir nesne değildir');
             }
 
+        </script>
+    </body>
+    </html>
+
+---
+
+## foreachArray()
+
+Object, Json ve Array türündeki kümelerin elemanlarını, varsa anahtarlarını tek tek elde etmeye yarayan döngüdür.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>foreachArray</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <div id="items"></div>
+        <script>
+            
+            /* -------------------------------------------------------------------------- */
+            /*                              ARRAY FOR FOREACH                             */
+            /* -------------------------------------------------------------------------- */
+            var cars = ["Saab", "Volvo", "BMW"];
+            foreachArray(cars, function(type, value){
+                appendItem('#items', value+'<br>');
+            });
+
+            appendItem('#items', '<hr>');
+
+            /* -------------------------------------------------------------------------- */
+            /*                             OBJECT FOR FOREACH                             */
+            /* -------------------------------------------------------------------------- */
+            var person = {
+                firstName: "John",
+                lastName: "Doe",
+                age: 50,
+                eyeColor: "blue"
+            };
+            
+            foreachArray(person, function(type, value){
+                appendItem('#items', value+'<br>');
+            });
+            
+            appendItem('#items', '<hr>');
+
+            /* -------------------------------------------------------------------------- */
+            /*                              JSON FOR FOREACH                              */
+            /* -------------------------------------------------------------------------- */
+            var text = '{ "employees" : [' +
+            '{ "firstName":"John" , "lastName":"Doe" },' +
+            '{ "firstName":"Anna" , "lastName":"Smith" },' +
+            '{ "firstName":"Peter" , "lastName":"Jones" } ]}'; 
+            foreachArray(text, function(type, value){
+                appendItem('#items', type+'<br>'); // employees
+                if(is_array(value)){
+                    foreachArray(value, function(key, user){
+                        appendItem('#items', '<br> ---'+user.firstName+' '+user.lastName);
+                    })
+                }
+                
+            });
         </script>
     </body>
     </html>
