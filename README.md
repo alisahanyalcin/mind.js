@@ -39,9 +39,9 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 ##### Doğrulama
 
-* is_array()
-* is_json()
-* is_object()
+* [is_array()](https://github.com/aliyilmaz/mind.js#is_array)
+* [is_json()](https://github.com/aliyilmaz/mind.js#is_json)
+* [is_object()](https://github.com/aliyilmaz/mind.js#is_object)
 
 ---
 
@@ -493,6 +493,96 @@ Belirtilen yazı yazma alan(lar)ında, belirtilen karakter uzunluğunda karakter
                 changeContent('#status', e);
             });
             
+        </script>
+    </body>
+    </html>
+
+
+---
+
+## is_array()
+
+Belirtilen verinin dizi türünde olup olmadığını kontrol etmeye yarar.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>is_array</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <script>
+
+            let item = ["user1", "User2", "user3", "User4"];
+            
+            if(is_array(item)){
+                console.log('Bu bir dizidir.');
+            } else {
+                console.log('Bu bir dizi değildir.');
+            }
+
+        </script>
+    </body>
+    </html>
+
+---
+
+## is_json()
+
+Belirtilen verinin json türünde olup olmadığını kontrol etmeye yarar.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>is_json</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <script>
+            let item = '{"status":"error","messages":{"username":{"required":"Kullan\u0131c\u0131 ad\u0131 belirtilmelidir."},"password":{"min-char":"Parola minumum 6 karakter uzunlu\u011funda olmal\u0131d\u0131r."},"email":{"email":"Ge\u00e7erli bir email adresi belirtilmelidir."}}}';
+
+            if(is_json(item)){
+                console.log('Bu bir json verisidir.');
+            } else {
+                console.log('Bu bir json verisi değildir.');
+            }
+
+        </script>
+    </body>
+    </html>
+
+
+---
+
+## is_object()
+
+Belirtilen verinin nesne türünde olup olmadığını kontrol etmeye yarar.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>is_object</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <script>
+            let item = '{"status":"error","messages":{"username":{"required":"Kullan\u0131c\u0131 ad\u0131 belirtilmelidir."},"password":{"min-char":"Parola minumum 6 karakter uzunlu\u011funda olmal\u0131d\u0131r."},"email":{"email":"Ge\u00e7erli bir email adresi belirtilmelidir."}}}';
+
+            if(is_object(JSON.parse(item))){
+                console.log('Bu bir nesnedir');
+            } else {
+                console.log('Bu bir nesne değildir');
+            }
+
         </script>
     </body>
     </html>
