@@ -20,7 +20,7 @@
     <div id="status"></div>
     <script>
         clickItem('button, a#save', function(){
-            actionPost('../../form/api/form', 'form', function(response){
+            actionPost('http://dummy.restapiexample.com/api/v1/create', 'form', function(response){
                 console.log(response);
                 changeContent('#status', response);
             });
