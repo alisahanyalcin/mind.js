@@ -9,26 +9,22 @@
  *
  */
 
-function actionPost(url, element, callback) {
+ function getLocation(element='', callback) {
 
-    const xhttp = new XMLHttpRequest();
-    const data = new FormData(document.querySelector(element));
+    if (navigator.geolocation) {
+        
+        navigator.geolocation.getCurrentPosition(function(position){
+            
+            let coordinates = position.coords.latitude+','+position.coords.longitude;
+            
+            changeContent(element, coordinates);
 
-    // Set POST method and ajax file path
-    xhttp.open("POST", url, true);
-
-    // call on request changes state
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-
-            if(callback) callback(this.responseText);
-        }
-    };
-
-    // Send request with data
-    xhttp.send(data);
-
-} 
+            if(callback) callback(position);
+        });
+    } else { 
+        console.log("Geolocation is not supported by this browser.");
+    }
+ }
 
 function actionGet(url, callback) {
 
@@ -48,18 +44,53 @@ function actionGet(url, callback) {
     
 } 
 
-function changeContent(element, value){
-    let elements = document.querySelectorAll(element);
-    if(elements.length >= 1){
+function actionPost(url, element, callback) {
 
-        elements.forEach(function(element) {
-            if(element.value === undefined){
-                element.innerHTML = value;
-            } else {
-                element.value = value;
-            }
-        });
-    }
+    const xhttp = new XMLHttpRequest();
+    const data = new FormData(document.querySelector(element));
+
+    // Set POST method and ajax file path
+    xhttp.open("POST", url, true);
+
+    // call on request changes state
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+
+            if(callback) callback(this.responseText);
+        }
+    };
+
+    // Send request with data
+    xhttp.send(data);
+
+}
+
+function redirect(url, delay=0, element=''){
+
+    let wait = 0,
+        inter = null;
+
+    if(element != ''){
+        wait = 1000;
+    } 
+    
+    inter = setInterval(function () {
+        if(delay === 0){
+            clearInterval(inter);
+            location.replace(url);
+        } else {
+            changeContent(element, delay);
+        }
+        delay--;
+    }, wait);
+    
+}
+
+function listening(callback, delay = 0.1) {
+    if(callback) callback(callback);
+    window.setInterval(function(){
+        if(callback) callback(callback);
+    }, delay);
 }
 
 function appendItem(element, value){
@@ -76,25 +107,24 @@ function appendItem(element, value){
     }
 }
 
-function clickItem(element, callback){
-    let buttons = document.querySelectorAll(element);
-    for(var i = 0; i<buttons.length; i++){
-        
-        buttons[i].addEventListener('click', (e) => {   
-            if(callback) callback(e.target);
-        });
+function changeContent(element, value){
+    let elements = document.querySelectorAll(element);
+    if(elements.length >= 1){
 
-    };
+        elements.forEach(function(element) {
+            if(element.value === undefined){
+                element.innerHTML = value;
+            } else {
+                element.value = value;
+            }
+        });
+    }
 }
 
-function keyupItem(element, callback){
+function itemSetAttr(element, name, value){
     let elements = document.querySelectorAll(element);
     for(var i = 0; i<elements.length; i++){
-        
-        elements[i].addEventListener('keyup', (e) => {   
-            if(callback) callback(e.target);
-        });
-
+        elements[i].setAttribute(name, value);
     };
 }
 
@@ -134,43 +164,28 @@ function removeItem(element, callback){
     };
 }
 
-function redirect(url, delay=0, element=''){
-
-    let wait = 0,
-        inter = null;
-
-    if(element != ''){
-        wait = 1000;
-    } 
-    
-    inter = setInterval(function () {
-        if(delay === 0){
-            clearInterval(inter);
-            location.replace(url);
-        } else {
-            changeContent(element, delay);
-        }
-        delay--;
-    }, wait);
-    
-}
-
-function getLocation(element='', callback) {
-
-    if (navigator.geolocation) {
+function clickItem(element, callback){
+    let buttons = document.querySelectorAll(element);
+    for(var i = 0; i<buttons.length; i++){
         
-        navigator.geolocation.getCurrentPosition(function(position){
-            
-            let coordinates = position.coords.latitude+','+position.coords.longitude;
-            
-            changeContent(element, coordinates);
-
-            if(callback) callback(position);
+        buttons[i].addEventListener('click', (e) => {   
+            if(callback) callback(e.target);
         });
-    } else { 
-        console.log("Geolocation is not supported by this browser.");
-    }
+
+    };
 }
+
+function keyupItem(element, callback){
+    let elements = document.querySelectorAll(element);
+    for(var i = 0; i<elements.length; i++){
+        
+        elements[i].addEventListener('keyup', (e) => {   
+            if(callback) callback(e.target);
+        });
+
+    };
+}
+
 
 function formReset(element, callback){
 
@@ -185,30 +200,23 @@ function formReset(element, callback){
     if(callback) callback(this);
 }
 
-function is_object(item){
-    if( Object.prototype.toString.call(item) === '[object Object]' ){
-        return true;
-    } else {
-        return false;
-    }
-}
+function charCounter(scheme, callback) {
 
-function is_array(obj){
-    if(Array.isArray(obj)){
-        return true;
-    } else {
-        return false;
+    let elements = document.querySelectorAll(scheme.element);
+    for (var i = 0; i < elements.length; i++){
+        
+        itemSetAttr(scheme.element, 'maxlength', scheme.limit);
+        
+        elements[i].addEventListener('keyup', (e) => {   
+            totalChar = e.target.value.length;
+            if(totalChar <= scheme.limit){
+                if (callback) callback(scheme.limit-totalChar);
+            }
+        });
 
-    }
-}
-
-function is_json(str) {
-    try {
-        JSON.parse(str);
-    } catch (e) {
-        return false;
-    }
-    return true;
+    };
+    
+    if (callback) callback(scheme.limit);
 }
 
 function foreachArray(object, callback){
@@ -235,30 +243,30 @@ function foreachArray(object, callback){
 
 }
 
-function itemSetAttr(element, name, value){
-    let elements = document.querySelectorAll(element);
-    for(var i = 0; i<elements.length; i++){
-        elements[i].setAttribute(name, value);
-    };
+function is_array(obj){
+    if(Array.isArray(obj)){
+        return true;
+    } else {
+        return false;
+
+    }
 }
 
-function charCounter(scheme, callback) {
+function is_json(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
 
-    let elements = document.querySelectorAll(scheme.element);
-    for (var i = 0; i < elements.length; i++){
-        
-        itemSetAttr(scheme.element, 'maxlength', scheme.limit);
-        
-        elements[i].addEventListener('keyup', (e) => {   
-            totalChar = e.target.value.length;
-            if(totalChar <= scheme.limit){
-                if (callback) callback(scheme.limit-totalChar);
-            }
-        });
-
-    };
-    
-    if (callback) callback(scheme.limit);
+function is_object(item){
+    if( Object.prototype.toString.call(item) === '[object Object]' ){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function internet() {
@@ -272,9 +280,3 @@ function internet() {
     return status;
 }
 
-function listening(callback, delay = 0.1) {
-    if(callback) callback(callback);
-    window.setInterval(function(){
-        if(callback) callback(callback);
-    }, delay);
-}

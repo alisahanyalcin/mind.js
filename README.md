@@ -52,6 +52,8 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 Ziyaretçi konumunu enlem,boylam söz diziminde belirtilen elementlere veya ikinci parametrede belirtilen fonksiyon içine atamaya yarar. 
 
+[Demo](https://aliyilmaz.github.io/mindjs/examples/getLocation.html)
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -89,6 +91,8 @@ Ziyaretçi konumunu enlem,boylam söz diziminde belirtilen elementlere veya ikin
 
 Belirtilen adresin varış noktasındaki sayfanın kaynak kodunu elde ederek, ikinci parametrede belirtilen fonksiyonun içine atamaya yarar.
 
+[Demo](https://aliyilmaz.github.io/mindjs/examples/actionGet.html)
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -114,6 +118,8 @@ Belirtilen adresin varış noktasındaki sayfanın kaynak kodunu elde ederek, ik
 ## actionPost()
 
 Belirtilen adrese, belirtilen form verilerini göndermeye yarar, üçüncü parametre ise yanıtı fonksiyonun içine atamayı sağlar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/actionPost.html)
 
     <!DOCTYPE html>
     <html lang="en">
@@ -152,6 +158,8 @@ Belirtilen adrese, belirtilen form verilerini göndermeye yarar, üçüncü para
 ## redirect()
 Ziyaretçiyi belirtilen adrese yönlendirmeye yarar. Üç parametre alır. İlk parametre yönlenecek adresi, ikinci parametre saniye cinsinden bekleme süresini, üçüncü parametre ise kalan saniyelerin gösterileceği element(ler)'i temsil eder.
 
+[Demo](https://aliyilmaz.github.io/mindjs/examples/redirect.html)
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -181,6 +189,8 @@ Ziyaretçiyi belirtilen adrese yönlendirmeye yarar. Üç parametre alır. İlk 
 ## listening()
 
 Belirtilen kodların gerçek zamanlı veya belirli aralıklarla çalışmasını sağlar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/listening.html)
 
     <!DOCTYPE html>
     <html lang="en">
@@ -232,6 +242,8 @@ Belirtilen kodların gerçek zamanlı veya belirli aralıklarla çalışmasını
 
 Belirtilen element(ler)'e, element içeriğinin sonuna içerik eklemeye yarar. Element eğer bir form elemanıysa `value` olarak atama yapar, eğer başka tür bir elementse içeriğine `innerHTML` yaklaşımıyla atama yapar.
 
+[Demo](https://aliyilmaz.github.io/mindjs/examples/appendItem.html)
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -259,6 +271,8 @@ Belirtilen element(ler)'e, element içeriğinin sonuna içerik eklemeye yarar. E
 ## changeContent()
 
 Belirtilen element(ler)'in içeriğini, belirtilen içerikle değiştirmeye yarar. Element eğer bir form elemanıysa `value` olarak güncelleme yapar, eğer başka tür bir elementse içeriğini `innerHTML` yaklaşımıyla değiştirir.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/changeContent.html)
 
     <!DOCTYPE html>
     <html lang="en">
@@ -304,6 +318,8 @@ Belirtilen element(ler)'in içeriğini, belirtilen içerikle değiştirmeye yara
 
 HTML element(ler)ine alt özellik belirtmeye yarar.
 
+[Demo](https://aliyilmaz.github.io/mindjs/examples/itemSetAttr.html)
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -332,6 +348,8 @@ HTML element(ler)ine alt özellik belirtmeye yarar.
 ## hideItem()
 
 Belirtilen element(ler)i gizlemeye yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/hideItem.html)
 
     <!DOCTYPE html>
     <html lang="en">
@@ -364,6 +382,8 @@ Belirtilen element(ler)i gizlemeye yarar.
 
 Belirtilen element(ler)i göstermeye yarar.
 
+[Demo](https://aliyilmaz.github.io/mindjs/examples/showItem.html)
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -395,6 +415,8 @@ Belirtilen element(ler)i göstermeye yarar.
 
 Belirtilen element(ler)i kaldırmaya yarar.
 
+[Demo](https://aliyilmaz.github.io/mindjs/examples/removeItem.html)
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -425,6 +447,8 @@ Belirtilen element(ler)i kaldırmaya yarar.
 ## clickItem()
 
 Belirtilen element(ler)in tıklamasını yakalamaya yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/clickItem.html)
 
     <!DOCTYPE html>
     <html lang="en">
@@ -460,6 +484,9 @@ Belirtilen element(ler)in tıklamasını yakalamaya yarar.
 
 Belirtilen form element(ler)inde, basılan klavye tuşlarını yakalamaya yarar.
 
+[Demo](https://aliyilmaz.github.io/mindjs/examples/keyupItem.html)
+
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -491,6 +518,8 @@ Belirtilen form element(ler)inde, basılan klavye tuşlarını yakalamaya yarar.
 ## formReset()
 
 Belirtilen form'un tüm alanlarını temizlemek için kullanılır.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/formReset.html)
 
     <!DOCTYPE html>
     <html lang="en">
@@ -539,6 +568,8 @@ Belirtilen form'un tüm alanlarını temizlemek için kullanılır.
 
 Belirtilen yazı yazma alan(lar)ında, belirtilen karakter uzunluğunda karakter belirtilmesini sağlar, girilen her karakter belirtilen karakter uzunluğundan düşülür ve yine belirtilen elementte kaç karakter daha yazılabileceği gösterilir.
 
+[Demo](https://aliyilmaz.github.io/mindjs/examples/charCounter.html)
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -568,133 +599,11 @@ Belirtilen yazı yazma alan(lar)ında, belirtilen karakter uzunluğunda karakter
 
 ---
 
-## is_array()
-
-Belirtilen verinin dizi türünde olup olmadığını kontrol etmeye yarar.
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>is_array</title>
-        <link rel="shortcut icon" href="#">
-        <script src="../src/mind.js"></script>
-    </head>
-    <body>
-        <script>
-
-            let item = ["user1", "User2", "user3", "User4"];
-            
-            if(is_array(item)){
-                console.log('Bu bir dizidir.');
-            } else {
-                console.log('Bu bir dizi değildir.');
-            }
-
-        </script>
-    </body>
-    </html>
-
----
-
-## is_json()
-
-Belirtilen verinin json türünde olup olmadığını kontrol etmeye yarar.
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>is_json</title>
-        <link rel="shortcut icon" href="#">
-        <script src="../src/mind.js"></script>
-    </head>
-    <body>
-        <script>
-            let item = '{"status":"error","messages":{"username":{"required":"Kullan\u0131c\u0131 ad\u0131 belirtilmelidir."},"password":{"min-char":"Parola minumum 6 karakter uzunlu\u011funda olmal\u0131d\u0131r."},"email":{"email":"Ge\u00e7erli bir email adresi belirtilmelidir."}}}';
-
-            if(is_json(item)){
-                console.log('Bu bir json verisidir.');
-            } else {
-                console.log('Bu bir json verisi değildir.');
-            }
-
-        </script>
-    </body>
-    </html>
-
-
----
-
-## is_object()
-
-Belirtilen verinin nesne türünde olup olmadığını kontrol etmeye yarar.
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>is_object</title>
-        <link rel="shortcut icon" href="#">
-        <script src="../src/mind.js"></script>
-    </head>
-    <body>
-        <script>
-            let item = '{"status":"error","messages":{"username":{"required":"Kullan\u0131c\u0131 ad\u0131 belirtilmelidir."},"password":{"min-char":"Parola minumum 6 karakter uzunlu\u011funda olmal\u0131d\u0131r."},"email":{"email":"Ge\u00e7erli bir email adresi belirtilmelidir."}}}';
-
-            if(is_object(JSON.parse(item))){
-                console.log('Bu bir nesnedir');
-            } else {
-                console.log('Bu bir nesne değildir');
-            }
-
-        </script>
-    </body>
-    </html>
-
----
-
-## internet()
-
-İnternet bağlantısının olup olmadığını öğrenmek için kullanılır.
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>internet</title>
-        <link rel="shortcut icon" href="#">
-        <script src="../src/mind.js"></script>
-    </head>
-    <body>
-        <div id="status"></div>
-        <script>
-            listening(()=>{
-
-                if(internet()){
-                    itemSetAttr('#status', 'style', 'color:green;');
-                    changeContent('#status', 'İnternet bağlantısı var');
-                } else {
-                    itemSetAttr('#status', 'style', 'color:red;');
-                    changeContent('#status', 'İnternet bağlantısı yok');
-                }
-
-            });
-        </script>
-    </body>
-    </html>
-
-
-
----
-
 ## foreachArray()
 
 Object, Json ve Array türündeki kümelerin elemanlarını, varsa anahtarlarını tek tek elde etmeye yarayan döngüdür.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/foreachArray.html)
 
     <!DOCTYPE html>
     <html lang="en">
@@ -750,6 +659,134 @@ Object, Json ve Array türündeki kümelerin elemanlarını, varsa anahtarların
                     })
                 }
                 
+            });
+        </script>
+    </body>
+    </html>
+
+## is_array()
+
+Belirtilen verinin dizi türünde olup olmadığını kontrol etmeye yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/is_array.html)
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>is_array</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <script>
+
+            let item = ["user1", "User2", "user3", "User4"];
+            
+            if(is_array(item)){
+                console.log('Bu bir dizidir.');
+            } else {
+                console.log('Bu bir dizi değildir.');
+            }
+
+        </script>
+    </body>
+    </html>
+
+---
+
+## is_json()
+
+Belirtilen verinin json türünde olup olmadığını kontrol etmeye yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/is_json.html)
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>is_json</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <script>
+            let item = '{"status":"error","messages":{"username":{"required":"Kullan\u0131c\u0131 ad\u0131 belirtilmelidir."},"password":{"min-char":"Parola minumum 6 karakter uzunlu\u011funda olmal\u0131d\u0131r."},"email":{"email":"Ge\u00e7erli bir email adresi belirtilmelidir."}}}';
+
+            if(is_json(item)){
+                console.log('Bu bir json verisidir.');
+            } else {
+                console.log('Bu bir json verisi değildir.');
+            }
+
+        </script>
+    </body>
+    </html>
+
+
+---
+
+## is_object()
+
+Belirtilen verinin nesne türünde olup olmadığını kontrol etmeye yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/is_object.html)
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>is_object</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <script>
+            let item = '{"status":"error","messages":{"username":{"required":"Kullan\u0131c\u0131 ad\u0131 belirtilmelidir."},"password":{"min-char":"Parola minumum 6 karakter uzunlu\u011funda olmal\u0131d\u0131r."},"email":{"email":"Ge\u00e7erli bir email adresi belirtilmelidir."}}}';
+
+            if(is_object(JSON.parse(item))){
+                console.log('Bu bir nesnedir');
+            } else {
+                console.log('Bu bir nesne değildir');
+            }
+
+        </script>
+    </body>
+    </html>
+
+---
+
+## internet()
+
+İnternet bağlantısının olup olmadığını öğrenmek için kullanılır.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/internet.html)
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>internet</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <div id="status"></div>
+        <script>
+            listening(()=>{
+
+                if(internet()){
+                    itemSetAttr('#status', 'style', 'color:green;');
+                    changeContent('#status', 'İnternet bağlantısı var');
+                } else {
+                    itemSetAttr('#status', 'style', 'color:red;');
+                    changeContent('#status', 'İnternet bağlantısı yok');
+                }
+
             });
         </script>
     </body>
