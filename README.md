@@ -273,6 +273,22 @@ Belirtilen element(ler)'in içeriğini, belirtilen içerikle değiştirmeye yara
         <div id="status"></div>
         <span id="status"></span>
         <hr>
+        <textarea id="status"></textarea>
+        <hr>
+        <input type="text" id="status">
+        <hr>
+        <select>
+            <option id="status">Test1</option>
+            <option value="">Test2</option>
+        </select>
+        <hr>
+        <input type="checkbox" id="status" value="Test 1">
+        <label> Test 1</label><br>
+        <input type="checkbox" value="Test 2">
+        <label> Test 2</label><br>
+        <input type="checkbox" value="Test 3">
+        <label> Test 3</label><br><br>
+        <hr>
         <div id="status1"></div>
         <script>
             changeContent("#status", 'Hello World!');
@@ -281,7 +297,6 @@ Belirtilen element(ler)'in içeriğini, belirtilen içerikle değiştirmeye yara
         </script>
     </body>
     </html>
-
     
 ---
 
