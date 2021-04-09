@@ -518,7 +518,7 @@ Belirtilen form element(ler)inde, basılan klavye tuşlarını yakalamaya yarar.
 
 ## changeItem()
 
-`select`, `radio` veya `checkbox` gibi seçim element(ler)in değişimini yakalamaya yarar. 
+`select`, `radio` veya `checkbox` gibi seçim yapmaya izin veren element(ler)in değişimini yakalamaya yarar.
 
 [Demo](https://aliyilmaz.github.io/mindjs/examples/changeItem.html)
 
