@@ -1,7 +1,7 @@
 /**
  *
  * @package    mind.js
- * @version    Release: 1.1.2
+ * @version    Release: 1.1.3
  * @license    GPL3
  * @author     Ali YILMAZ <aliyilmaz.work@gmail.com>
  * @category   Javascript Framework, Basic web development kit.
@@ -186,6 +186,16 @@ function keyupItem(element, callback){
     };
 }
 
+function changeItem(element, callback) {
+    let items = document.querySelectorAll(element);
+    for(var i = 0; i<items.length; i++){
+        
+        items[i].addEventListener('change', (e) => {   
+            if(callback) callback(e.target);
+        });
+
+    };
+}
 
 function formReset(element, callback){
 

@@ -35,6 +35,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 * [clickItem()](https://github.com/aliyilmaz/mind.js#clickitem)
 * [keyupItem()](https://github.com/aliyilmaz/mind.js#keyupitem)
+* [changeItem()](https://github.com/aliyilmaz/mind.js#changeitem)
 * [formReset()](https://github.com/aliyilmaz/mind.js#formreset)
 * [charCounter()](https://github.com/aliyilmaz/mind.js#charcounter)
 * [foreachArray()](https://github.com/aliyilmaz/mind.js#foreacharray)
@@ -50,7 +51,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 ## getLocation()
 
-Ziyaretçi konumunu enlem,boylam söz diziminde belirtilen elementlere veya ikinci parametrede belirtilen fonksiyon içine atamaya yarar. 
+Ziyaretçi konumunu enlem,boylam söz diziminde belirtilen element(ler)e veya ikinci parametrede belirtilen fonksiyon içine atamaya yarar. 
 
 [Demo](https://aliyilmaz.github.io/mindjs/examples/getLocation.html)
 
@@ -156,7 +157,7 @@ Belirtilen adrese, belirtilen form verilerini göndermeye yarar, üçüncü para
 ---
 
 ## redirect()
-Ziyaretçiyi belirtilen adrese yönlendirmeye yarar. Üç parametre alır. İlk parametre yönlenecek adresi, ikinci parametre saniye cinsinden bekleme süresini, üçüncü parametre ise kalan saniyelerin gösterileceği element(ler)'i temsil eder.
+Ziyaretçiyi belirtilen adrese yönlendirmeye yarar. Üç parametre alır. İlk parametre yönlenecek adresi, ikinci parametre saniye cinsinden bekleme süresini, üçüncü parametre ise kalan saniyelerin gösterileceği element(ler)i temsil eder.
 
 [Demo](https://aliyilmaz.github.io/mindjs/examples/redirect.html)
 
@@ -240,7 +241,7 @@ Belirtilen kodların gerçek zamanlı veya belirli aralıklarla çalışmasını
 
 ## appendItem()
 
-Belirtilen element(ler)'e, element içeriğinin sonuna içerik eklemeye yarar. Element eğer bir form elemanıysa `value` olarak atama yapar, eğer başka tür bir elementse içeriğine `innerHTML` yaklaşımıyla atama yapar.
+Belirtilen element(ler)'in, sahip oldukları içeriğinin sonuna içerik eklemeye yarar. Element(ler) eğer bir form elemanıysa `value` olarak atama yapar, eğer başka tür element(ler)se içeriğine `innerHTML` yaklaşımıyla atama yapar.
 
 [Demo](https://aliyilmaz.github.io/mindjs/examples/appendItem.html)
 
@@ -270,7 +271,7 @@ Belirtilen element(ler)'e, element içeriğinin sonuna içerik eklemeye yarar. E
 
 ## changeContent()
 
-Belirtilen element(ler)'in içeriğini, belirtilen içerikle değiştirmeye yarar. Element eğer bir form elemanıysa `value` olarak güncelleme yapar, eğer başka tür bir elementse içeriğini `innerHTML` yaklaşımıyla değiştirir.
+Belirtilen element(ler)'in içeriğini, belirtilen içerikle değiştirmeye yarar. Element(ler) eğer bir form elemanıysa `value` olarak güncelleme yapar, eğer başka tür element(ler)se içeriğine `innerHTML` yaklaşımıyla değiştirir.
 
 [Demo](https://aliyilmaz.github.io/mindjs/examples/changeContent.html)
 
@@ -515,6 +516,61 @@ Belirtilen form element(ler)inde, basılan klavye tuşlarını yakalamaya yarar.
 
 ---
 
+## changeItem()
+
+`select`, `radio` veya `checkbox` gibi seçim element(ler)in değişimini yakalamaya yarar. 
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/formReset.html)
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>changeItem</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+
+        <p>Select a new car from the list.</p>
+
+        <select>
+        <option value="Audi">Audi</option>
+        <option value="BMW">BMW</option>
+        <option value="Mercedes">Mercedes</option>
+        <option value="Volvo">Volvo</option>
+        </select>
+        
+        <p>When you select a new car, a function is triggered which outputs the value of the selected car.</p>
+        
+        <p id="demo"></p>
+        <h1 id="demo"></h1>
+        <input id="demo"><br>
+        <textarea id="demo"></textarea><br>
+        <input type="checkbox" id="demo" value="Test 1">
+        <label> Test 1</label><br>
+        <input type="checkbox" value="Test 2">
+        <label> Test 2</label><br>
+        <input type="checkbox" value="Test 3">
+        <label> Test 3</label><br><br>
+        <select>
+            <option id="demo">Test1</option>
+            <option value="">Test2</option>
+        </select>
+        
+        <script>
+            changeItem('select', function(e){
+                changeContent('#demo', 'Seçiminiz: '+e.value);
+            });
+            
+        </script>
+    </body>
+    </html>
+
+---
+
 ## formReset()
 
 Belirtilen form'un tüm alanlarını temizlemek için kullanılır.
@@ -566,7 +622,7 @@ Belirtilen form'un tüm alanlarını temizlemek için kullanılır.
 
 ## charCounter()
 
-Belirtilen yazı yazma alan(lar)ında, belirtilen karakter uzunluğunda karakter belirtilmesini sağlar, girilen her karakter belirtilen karakter uzunluğundan düşülür ve yine belirtilen elementte kaç karakter daha yazılabileceği gösterilir.
+Belirtilen yazı yazma alan(lar)ında, belirtilen karakter uzunluğunda karakter belirtilmesini sağlar, girilen her karakter belirtilen karakter uzunluğundan düşülür ve yine belirtilen element(ler)de kaç karakter daha yazılabileceği gösterilir.
 
 [Demo](https://aliyilmaz.github.io/mindjs/examples/charCounter.html)
 
