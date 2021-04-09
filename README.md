@@ -520,7 +520,7 @@ Belirtilen form element(ler)inde, basılan klavye tuşlarını yakalamaya yarar.
 
 `select`, `radio` veya `checkbox` gibi seçim element(ler)in değişimini yakalamaya yarar. 
 
-[Demo](https://aliyilmaz.github.io/mindjs/examples/formReset.html)
+[Demo](https://aliyilmaz.github.io/mindjs/examples/changeItem.html)
 
 
     <!DOCTYPE html>
