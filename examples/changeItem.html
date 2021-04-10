@@ -20,23 +20,33 @@
     
     <p>When you select a new car, a function is triggered which outputs the value of the selected car.</p>
     
-    <p id="demo"></p>
-    <h1 id="demo"></h1>
-    <input id="demo"><br>
-    <textarea id="demo"></textarea><br>
-    <input type="checkbox" id="demo" value="Test 1">
+    
+    <input type="checkbox" value="Test 1">
     <label> Test 1</label><br>
     <input type="checkbox" value="Test 2">
     <label> Test 2</label><br>
     <input type="checkbox" value="Test 3">
     <label> Test 3</label><br><br>
     <select>
-        <option id="demo">Test1</option>
-        <option value="">Test2</option>
+        <option value="Test1">Test1</option>
+        <option value="Test2">Test2</option>
     </select>
-    
+    <hr>
+    <p>Please select your gender:</p>
+    <input type="radio" value="male">
+    <label for="male">Male</label><br>
+    <input type="radio" value="female">
+    <label for="female">Female</label><br>
+    <input type="radio" value="other">
+    <label for="other">Other</label>
+
+    <hr>
+    <p id="demo"></p>
+    <h1 id="demo"></h1>
+    <input id="demo"><br>
+    <textarea id="demo"></textarea><br>
     <script>
-        changeItem('select', function(e){
+        changeItem('select, input[type=checkbox], input[type=radio]', function(e){
             changeContent('#demo', 'You selected: '+e.value);
         });
         
