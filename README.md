@@ -26,6 +26,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 * [appendItem()](https://github.com/aliyilmaz/mind.js#appenditem)
 * [changeContent()](https://github.com/aliyilmaz/mind.js#changecontent)
+* [copyItem()](https://github.com/aliyilmaz/mind.js#copyitem)
 * [itemSetAttr()](https://github.com/aliyilmaz/mind.js#itemsetattr)
 * [hideItem()](https://github.com/aliyilmaz/mind.js#hideitem)
 * [showItem()](https://github.com/aliyilmaz/mind.js#showitem)
@@ -315,6 +316,38 @@ Belirtilen element(ler)'in içeriğini, belirtilen içerikle değiştirmeye yara
     
 ---
 
+## copyItem()
+
+Belirtilen element(ler)i belirtilen element(ler)e kopyalamaya yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/copyItem.html)
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>copyItem</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <input type="text" value="Hello world">
+        <button>Copy</button>
+        <div style="width: 100%; height:50px; background-color:burlywood;"></div>
+        <hr>
+        <p style="width: 100%; height:50px; background-color:aquamarine;"></p>
+        <script>
+            clickItem('button', function(){
+                removeItem('div input, p input');
+                copyItem("input[type=text]", 'div, p');
+            })
+        </script>
+    </body>
+    </html>
+
+---
+
 ## itemSetAttr()
 
 HTML element(ler)ine alt özellik belirtmeye yarar.
@@ -545,40 +578,29 @@ Belirtilen form element(ler)inde, basılan klavye tuşlarını yakalamaya yarar.
         
         <p>When you select a new car, a function is triggered which outputs the value of the selected car.</p>
         
-        
-        <input type="checkbox" value="Test 1">
+        <p id="demo"></p>
+        <h1 id="demo"></h1>
+        <input id="demo"><br>
+        <textarea id="demo"></textarea><br>
+        <input type="checkbox" id="demo" value="Test 1">
         <label> Test 1</label><br>
         <input type="checkbox" value="Test 2">
         <label> Test 2</label><br>
         <input type="checkbox" value="Test 3">
         <label> Test 3</label><br><br>
         <select>
-            <option value="Test1">Test1</option>
-            <option value="Test2">Test2</option>
+            <option id="demo">Test1</option>
+            <option value="">Test2</option>
         </select>
-        <hr>
-        <p>Please select your gender:</p>
-        <input type="radio" value="male">
-        <label for="male">Male</label><br>
-        <input type="radio" value="female">
-        <label for="female">Female</label><br>
-        <input type="radio" value="other">
-        <label for="other">Other</label>
-
-        <hr>
-        <p id="demo"></p>
-        <h1 id="demo"></h1>
-        <input id="demo"><br>
-        <textarea id="demo"></textarea><br>
+        
         <script>
-            changeItem('select, input[type=checkbox], input[type=radio]', function(e){
-                changeContent('#demo', 'You selected: '+e.value);
+            changeItem('select', function(e){
+                changeContent('#demo', 'Seçiminiz: '+e.value);
             });
             
         </script>
     </body>
     </html>
-
 
 ---
 
