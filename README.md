@@ -332,16 +332,60 @@ Belirtilen element(ler)i belirtilen element(ler)e kopyalamaya yarar.
         <script src="../src/mind.js"></script>
     </head>
     <body>
-        <input type="text" value="Hello world">
-        <button>Copy</button>
-        <div style="width: 100%; height:50px; background-color:burlywood;"></div>
+        <button>Ekle</button>
         <hr>
-        <p style="width: 100%; height:50px; background-color:aquamarine;"></p>
+        <div id="elements">
+            <div class="form-group">
+                <input type="checkbox" value="Test 1">
+                <label> Test 1</label><br>
+                <input type="checkbox" value="Test 2">
+                <label> Test 2</label><br>
+            </div>
+            <div class="form-group">
+                <input type="file">
+            </div>
+            <div class="form-group">
+                <input type="file" multiple>
+            </div>
+            <div class="form-group">
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <textarea cols="30" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select>
+                    <option value="Audi">Audi</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Mercedes">Mercedes</option>
+                    <option value="Volvo">Volvo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="type">Type1</label>
+                <select>
+                    <option value="Audi1">Audi1</option>
+                    <option value="BMW1">BMW1</option>
+                    <option value="Mercedes1">Mercedes1</option>
+                    <option value="Volvo1">Volvo1</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div id="example">
+
+        </div>
         <script>
             clickItem('button', function(){
-                removeItem('div input, p input');
-                copyItem("input[type=text]", 'div, p');
+                removeItem('#example div.form-group');
+                copyItem('#elements div.form-group', '#example');
             })
+            
         </script>
     </body>
     </html>
