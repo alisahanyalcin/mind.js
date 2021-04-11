@@ -322,6 +322,7 @@ Belirtilen element(ler)i belirtilen element(ler)e kopyalamaya yarar.
 
 [Demo](https://aliyilmaz.github.io/mindjs/examples/copyItem.html)
 
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -382,6 +383,9 @@ Belirtilen element(ler)i belirtilen element(ler)e kopyalamaya yarar.
         </div>
         <script>
             clickItem('button', function(){
+                //removeItem('#example div.form-group select');
+                //copyItem('#elements div.form-group select', '#example');
+
                 removeItem('#example div.form-group');
                 copyItem('#elements div.form-group', '#example');
             })
