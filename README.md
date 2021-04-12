@@ -52,7 +52,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 ## getLocation()
 
-Ziyaretçi konumunu enlem,boylam söz diziminde belirtilen element(ler)e veya ikinci parametrede belirtilen fonksiyon içine atamaya yarar. 
+Ziyaretçi konumunu enlem,boylam söz diziminde belirtilen element(ler)e veya ikinci parametrede belirtilen fonksiyon içine atamaya yarar. GPS verileriyle ilgili daha fazla bilgi için w3school'un [HTML Geolocation API](https://www.w3schools.com/html/html5_geolocation.asp) maddesine bakabilirsiniz.
 
 [Demo](https://aliyilmaz.github.io/mindjs/examples/getLocation.html)
 
