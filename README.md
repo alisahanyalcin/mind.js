@@ -358,7 +358,7 @@ Belirtilen element(ler)i belirtilen element(ler)e kopyalamaya yarar.
                 <textarea cols="30" rows="4"></textarea>
             </div>
             <div class="form-group">
-                <label for="type">Type</label>
+                <label for="type">Single select 1</label>
                 <select>
                     <option value="Audi">Audi</option>
                     <option value="BMW">BMW</option>
@@ -367,12 +367,30 @@ Belirtilen element(ler)i belirtilen element(ler)e kopyalamaya yarar.
                 </select>
             </div>
             <div class="form-group">
-                <label for="type">Type1</label>
+                <label for="type">Single select 2</label>
                 <select>
                     <option value="Audi1">Audi1</option>
                     <option value="BMW1">BMW1</option>
                     <option value="Mercedes1">Mercedes1</option>
                     <option value="Volvo1">Volvo1</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="type">Multi select 1</label>
+                <select name="cars" id="cars" multiple>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="type">Multi select 2</label>
+                <select name="cars" id="cars" multiple>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
                 </select>
             </div>
         </div>
@@ -393,6 +411,7 @@ Belirtilen element(ler)i belirtilen element(ler)e kopyalamaya yarar.
         </script>
     </body>
     </html>
+
 
 ---
 
