@@ -401,7 +401,7 @@ Belirtilen element(ler)i belirtilen element(ler)e kopyalamaya yarar.
         </div>
         <script>
             clickItem('button', function(){
-                //removeItem('#example div.form-group select');
+                //removeItem('#example select');
                 //copyItem('#elements div.form-group select', '#example');
 
                 removeItem('#example div.form-group');
