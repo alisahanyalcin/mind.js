@@ -76,9 +76,10 @@ Ziyaretçi konumunu enlem,boylam söz diziminde belirtilen element(ler)e veya ik
 
             getLocation('input, input#key, textarea#key1, #status');
             
-            // getLocation('', function(position){
-            //    console.log(position.coords.latitude);
-            // });
+            //getLocation('', function(position){
+            //    console.log('Latitude: '+position.coords.latitude);
+            //    console.log('Longitude:'+position.coords.longitude);
+            //});
             
             // getLocation('input, input#key, textarea#key1', function(position){
             //    console.log(position.coords.latitude);
