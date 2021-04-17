@@ -244,7 +244,7 @@ Belirtilen kodların gerçek zamanlı veya belirli aralıklarla çalışmasını
 
 ## generateToken()
 
-Rastgele oluşturulan parametreyi, belirtilen element(ler)e veya ikinci parametrede belirtilen fonksiyon içine atamaya yarar. Varsayılan parametre uzunluğu `100` karakter olarak tanımlanmıştır, değiştirmek için aşağıdaki örnekte olduğu gibi `integer` bir değer belirtilmelidir.
+Rastgele parametre oluşturmaya yarar. Varsayılan parametre uzunluğu `100` karakter olarak tanımlanmıştır, değiştirmek için aşağıdaki örnekte olduğu gibi `integer` bir değer belirtilmelidir.
 
 [Demo](https://aliyilmaz.github.io/mindjs/examples/generateToken.html)
 
