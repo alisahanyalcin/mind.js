@@ -107,6 +107,22 @@ function generateToken(limit=100) {
     return s;
 }
 
+function getContent(element) {
+    let content = '',
+        elements = document.querySelectorAll(element);
+    if (elements.length === 1) {
+        elements.forEach(function (element) {
+            if(element.value === undefined){
+                content = element.innerHTML;
+            } else {
+                content = element.value;
+            }
+        });
+    }
+   
+    return content;
+}
+
 function appendItem(element, value){
     let elements = document.querySelectorAll(element);
     if(elements.length >= 1){

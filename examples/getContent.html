@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getContent</title>
+    <link rel="shortcut icon" href="#">
+    <script src="../src/mind.js"></script>
+</head>
+<body>
+    <button>Getir</button><br><br>
+    <textarea cols="30" rows="10"></textarea><br><br>
+    <p>selamlar</p><br><br>
+    <select>
+        <option>Option 1</option>
+        <option>Option 2</option>
+    </select>
+    <br>
+    <br>
+    <div id="example" style="max-width: 500px;word-wrap:break-word;">
+
+    </div>
+    <script>
+        clickItem('button', function(){
+            changeContent('div#example', getContent('textarea'));
+            //changeContent('div#example', getContent('p'));
+            //changeContent('div#example', getContent('select'));
+        })
+        
+    </script>
+</body>
+</html>

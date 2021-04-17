@@ -25,6 +25,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 ##### Element
 
+* [getContent()](https://github.com/aliyilmaz/mind.js#getcontent)
 * [appendItem()](https://github.com/aliyilmaz/mind.js#appenditem)
 * [changeContent()](https://github.com/aliyilmaz/mind.js#changecontent)
 * [copyItem()](https://github.com/aliyilmaz/mind.js#copyitem)
@@ -275,6 +276,49 @@ Rastgele parametre oluşturmaya yarar. Varsayılan parametre uzunluğu `100` kar
         </script>
     </body>
     </html>
+
+---
+
+## getContent()
+
+Sadece bir adet bulunan elementin, türüne bağlı olarak `value` veya `innerHTML` değerini elde etmeye yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/getContent.html)
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>getContent</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <button>Getir</button><br><br>
+        <textarea cols="30" rows="10"></textarea><br><br>
+        <p>selamlar</p><br><br>
+        <select>
+            <option>Option 1</option>
+            <option>Option 2</option>
+        </select>
+        <br>
+        <br>
+        <div id="example" style="max-width: 500px;word-wrap:break-word;">
+
+        </div>
+        <script>
+            clickItem('button', function(){
+                changeContent('div#example', getContent('textarea'));
+                //changeContent('div#example', getContent('p'));
+                //changeContent('div#example', getContent('select'));
+            })
+            
+        </script>
+    </body>
+    </html>
+
 
 ---
 
