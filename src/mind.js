@@ -1,7 +1,7 @@
 /**
  *
  * @package    mind.js
- * @version    Release: 1.1.7
+ * @version    Release: 1.1.8
  * @license    GPL3
  * @author     Ali YILMAZ <aliyilmaz.work@gmail.com>
  * @category   Javascript Framework, Basic web development kit.
@@ -93,6 +93,18 @@ function listening(callback, delay = 0.1) {
     window.setInterval(function(){
         if(callback) callback(callback);
     }, delay);
+}
+
+function generateToken(limit=100) {
+    var s = '';
+    var randomchar = function() {
+      var n = Math.floor(Math.random() * 62);
+      if (n < 10) return n; //1-10
+      if (n < 36) return String.fromCharCode(n + 55); //A-Z
+      return String.fromCharCode(n + 61); //a-z
+    }
+    while (s.length < limit) s += randomchar();
+    return s;
 }
 
 function appendItem(element, value){

@@ -241,6 +241,42 @@ Belirtilen kodların gerçek zamanlı veya belirli aralıklarla çalışmasını
 
 ---
 
+## generateToken()
+
+Rastgele oluşturulan parametreyi, belirtilen element(ler)e veya ikinci parametrede belirtilen fonksiyon içine atamaya yarar. Varsayılan parametre uzunluğu `100` karakter olarak tanımlanmıştır, değiştirmek için aşağıdaki örnekte olduğu gibi `integer` bir değer belirtilmelidir.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/generateToken.html)
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>generateToken</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <button>Oluştur</button><br><br>
+        <label for="key"> Key </label>
+        
+        <textarea id="key" rows="10" cols="50"></textarea>
+        <br>
+        <br>
+        <div id="example" style="max-width: 500px;word-wrap:break-word;">
+
+        </div>
+        <script>
+            clickItem('button', function(){
+                changeContent('textarea#key, div#example', generateToken(450));
+            })
+            
+        </script>
+    </body>
+    </html>
+
+---
+
 ## appendItem()
 
 Belirtilen element(ler)'in, sahip oldukları içeriğinin sonuna içerik eklemeye yarar. Element(ler) eğer bir form elemanıysa `value` olarak atama yapar, eğer başka tür element(ler)se içeriğine `innerHTML` yaklaşımıyla atama yapar.
