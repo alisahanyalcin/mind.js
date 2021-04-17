@@ -21,6 +21,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [actionPost()](https://github.com/aliyilmaz/mind.js#actionpost)
 * [redirect()](https://github.com/aliyilmaz/mind.js#redirect)
 * [listening()](https://github.com/aliyilmaz/mind.js#listening)
+* [generateToken()](https://github.com/aliyilmaz/mind.js#generatetoken)
 
 ##### Element
 
