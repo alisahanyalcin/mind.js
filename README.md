@@ -972,6 +972,9 @@ Object, Json ve Array türündeki kümelerin elemanlarını, varsa anahtarların
 
 Belirtilen verinin `string` türünde olup olmadığını kontrol etmeye yarar.
 
+[Demo](https://aliyilmaz.github.io/mindjs/examples/is_string.html)
+
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
