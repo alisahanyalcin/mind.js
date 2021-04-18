@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inverse</title>
+    <link rel="shortcut icon" href="#">
+    <script src="../src/mind.js"></script>
+</head>
+<body>
+    <div id="example">
+
+    </div>
+
+    <script>
+
+        /* -------------------------------------------------------------------------- */
+        /*                                   STRING                                   */
+        /* -------------------------------------------------------------------------- */
+        let text = 'merhaba';
+        appendItem('div#example', text+' - '+inverse(text));
+        appendItem('div#example', '<br><br>');
+        
+        /* -------------------------------------------------------------------------- */
+        /*                                    ARRAY                                   */
+        /* -------------------------------------------------------------------------- */
+        let item = ["user1", "User2", "user3", "User4"];
+        appendItem('div#example', item+' - '+inverse(item));
+        appendItem('div#example', '<br><br>');
+        
+        /* -------------------------------------------------------------------------- */
+        /*                                    JSON OBJECT                             */
+        /* -------------------------------------------------------------------------- */
+        let jsonObject = {"firstName":"John", "lastName":"Doe"};
+        appendItem('div#example',JSON.stringify(jsonObject)+' - '+JSON.stringify(inverse(jsonObject)));
+        appendItem('div#example', '<br><br>');
+
+        /* -------------------------------------------------------------------------- */
+        /*                                    JSON ARRAY                              */
+        /* -------------------------------------------------------------------------- */
+        let jsonArray = {
+            "name":"John",
+            "age":30,
+            "cars":[ "Ford", "BMW", "Fiat" ]
+            };
+        appendItem('div#example',JSON.stringify(jsonArray['cars'])+' - '+JSON.stringify(inverse(jsonArray['cars'])));
+        appendItem('div#example', '<br><br>');
+
+    </script>
+</body>
+</html>

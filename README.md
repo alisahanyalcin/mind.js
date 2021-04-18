@@ -22,6 +22,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [redirect()](https://github.com/aliyilmaz/mind.js#redirect)
 * [listening()](https://github.com/aliyilmaz/mind.js#listening)
 * [generateToken()](https://github.com/aliyilmaz/mind.js#generatetoken)
+* [inverse()](https://github.com/aliyilmaz/mind.js#inverse)
 
 ##### Element
 
@@ -45,6 +46,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 ##### Doğrulama
 
+* [is_string()](https://github.com/aliyilmaz/mind.js#is_string)
 * [is_array()](https://github.com/aliyilmaz/mind.js#is_array)
 * [is_json()](https://github.com/aliyilmaz/mind.js#is_json)
 * [is_object()](https://github.com/aliyilmaz/mind.js#is_object)
@@ -276,6 +278,68 @@ Rastgele parametre oluşturmaya yarar. Varsayılan parametre uzunluğu `100` kar
         </script>
     </body>
     </html>
+
+---
+
+## inverse()
+
+`string`, `array` ve `json` türündeki verinin tersten sıralanması ya da karakterlerinin tersten yazılmasını sağlamaya yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/inverse.html)
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>inverse</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <div id="example">
+
+        </div>
+
+        <script>
+
+            /* -------------------------------------------------------------------------- */
+            /*                                   STRING                                   */
+            /* -------------------------------------------------------------------------- */
+            let text = 'merhaba';
+            appendItem('div#example', text+' - '+inverse(text));
+            appendItem('div#example', '<br><br>');
+            
+            /* -------------------------------------------------------------------------- */
+            /*                                    ARRAY                                   */
+            /* -------------------------------------------------------------------------- */
+            let item = ["user1", "User2", "user3", "User4"];
+            appendItem('div#example', item+' - '+inverse(item));
+            appendItem('div#example', '<br><br>');
+            
+            /* -------------------------------------------------------------------------- */
+            /*                                    JSON OBJECT                             */
+            /* -------------------------------------------------------------------------- */
+            let jsonObject = {"firstName":"John", "lastName":"Doe"};
+            appendItem('div#example',JSON.stringify(jsonObject)+' - '+JSON.stringify(inverse(jsonObject)));
+            appendItem('div#example', '<br><br>');
+
+            /* -------------------------------------------------------------------------- */
+            /*                                    JSON ARRAY                              */
+            /* -------------------------------------------------------------------------- */
+            let jsonArray = {
+                "name":"John",
+                "age":30,
+                "cars":[ "Ford", "BMW", "Fiat" ]
+                };
+            appendItem('div#example',JSON.stringify(jsonArray['cars'])+' - '+JSON.stringify(inverse(jsonArray['cars'])));
+            appendItem('div#example', '<br><br>');
+
+        </script>
+    </body>
+    </html>
+
 
 ---
 
@@ -901,6 +965,46 @@ Object, Json ve Array türündeki kümelerin elemanlarını, varsa anahtarların
         </script>
     </body>
     </html>
+
+---
+
+## is_string()
+
+Belirtilen verinin `string` türünde olup olmadığını kontrol etmeye yarar.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>is_string</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <div id="example">
+
+        </div>
+
+        <script>
+
+            // if(is_string(1)){
+            //     changeContent('div#example', 'Bu string türünde bir veridir');
+            // } else {
+            //     changeContent('div#example', 'Bu string türünde bir veri değildir');
+            // }
+
+            if(is_string('1')){
+                changeContent('div#example', 'Bu string türünde bir veridir');
+            } else {
+                changeContent('div#example', 'Bu string türünde bir veri değildir');
+            }
+
+        </script>
+    </body>
+    </html>
+
+---
 
 ## is_array()
 

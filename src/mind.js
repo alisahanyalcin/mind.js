@@ -1,7 +1,7 @@
 /**
  *
  * @package    mind.js
- * @version    Release: 1.1.8
+ * @version    Release: 1.1.9
  * @license    GPL3
  * @author     Ali YILMAZ <aliyilmaz.work@gmail.com>
  * @category   Javascript Framework, Basic web development kit.
@@ -105,6 +105,30 @@ function generateToken(limit=100) {
     }
     while (s.length < limit) s += randomchar();
     return s;
+}
+
+function inverse(data) {
+    
+    let revrs;
+
+    if (is_string(data)) {
+        revrs = data.split("").reverse().join("");
+    }
+    
+    if(is_array(data)) {
+        revrs = data.reverse();
+    }
+
+    if (is_object(data)) {
+        new_obj= {}
+        rev_obj = Object.keys(data).reverse();
+        rev_obj.forEach(function(i) { 
+            new_obj[i] = data[i];
+        })
+        return new_obj;
+    }
+
+    return revrs;
 }
 
 function getContent(element) {
@@ -323,6 +347,10 @@ function foreachArray(object, callback){
         console.log('Only arrays, objects and json can be processed.');
     }
 
+}
+
+function is_string(str) {
+    return typeof str === 'string' || str instanceof String;
 }
 
 function is_array(obj){
