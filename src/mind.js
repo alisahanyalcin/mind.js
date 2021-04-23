@@ -1,7 +1,7 @@
 /**
  *
  * @package    mind.js
- * @version    Release: 1.1.9
+ * @version    Release: 1.2.0
  * @license    GPL3
  * @author     Ali YILMAZ <aliyilmaz.work@gmail.com>
  * @category   Javascript Framework, Basic web development kit.
@@ -349,6 +349,10 @@ function foreachArray(object, callback){
 
 }
 
+function is_function(funcName) {
+    return !!(funcName && funcName.call && funcName.apply);
+}
+ 
 function is_string(str) {
     return typeof str === 'string' || str instanceof String;
 }

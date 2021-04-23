@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>is_function</title>
+    <link rel="shortcut icon" href="#">
+    <script src="../src/mind.js"></script>
+</head>
+<body>
+   
+    <div id="example"></div>
+    <script>
+        
+        if(is_function('getContent')){
+            changeContent('#example', 'Bu isimle tanımlanmış bir fonksiyon vardır.');
+        } else {
+            changeContent('#example', 'Bu isimle tanımlanmış bir fonksiyon yoktur.');
+        }
+    </script>
+</body>
+</html>

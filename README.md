@@ -46,6 +46,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 ##### Doğrulama
 
+* [is_function()](https://github.com/aliyilmaz/mind.js#is_function)
 * [is_string()](https://github.com/aliyilmaz/mind.js#is_string)
 * [is_array()](https://github.com/aliyilmaz/mind.js#is_array)
 * [is_json()](https://github.com/aliyilmaz/mind.js#is_json)
@@ -965,6 +966,39 @@ Object, Json ve Array türündeki kümelerin elemanlarını, varsa anahtarların
         </script>
     </body>
     </html>
+
+---
+
+## is_function()
+
+Bir fonksiyonun daha önce tanımlanıp tanımlanmadığını kontrol etmeye yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/is_function.html)
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>is_function</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+    
+        <div id="example"></div>
+        <script>
+            
+            if(is_function('getContent')){
+                changeContent('#example', 'Bu isimle tanımlanmış bir fonksiyon vardır.');
+            } else {
+                changeContent('#example', 'Bu isimle tanımlanmış bir fonksiyon yoktur.');
+            }
+        </script>
+    </body>
+    </html>
+
 
 ---
 
