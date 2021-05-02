@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventCapture</title>
+    <link rel="shortcut icon" href="#">
+    <script src="../src/mind.js"></script>
+</head>
+<body>
+    <div id="status"></div>
+    <script>
+        eventCapture('keyup', function(e){
+            e.target.style = 'background-color:yellow;';
+            console.log(e.target.value);
+        });
+
+        eventCapture('click', function(e){
+            e.target.style = 'background-color:red; color:white;';
+            console.log(e.target.textContent);
+        });
+    </script>
+    <button type="button">Kaydet</button>
+   <input type="text">
+</body>
+</html>

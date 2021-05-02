@@ -43,9 +43,11 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [formReset()](https://github.com/aliyilmaz/mind.js#formreset)
 * [charCounter()](https://github.com/aliyilmaz/mind.js#charcounter)
 * [foreachArray()](https://github.com/aliyilmaz/mind.js#foreacharray)
+* [eventCapture()](https://github.com/aliyilmaz/mind.js#eventcapture)
 
 ##### Doğrulama
 
+* [in_array()](https://github.com/aliyilmaz/mind.js#in_array)
 * [is_function()](https://github.com/aliyilmaz/mind.js#is_function)
 * [is_string()](https://github.com/aliyilmaz/mind.js#is_string)
 * [is_array()](https://github.com/aliyilmaz/mind.js#is_array)
@@ -963,6 +965,82 @@ Object, Json ve Array türündeki kümelerin elemanlarını, varsa anahtarların
                 }
                 
             });
+        </script>
+    </body>
+    </html>
+
+---
+
+## eventCapture()
+
+Belirtilen olayı yakalamaya ve ikinci parametrede belirtilen fonksiyonun içine atamaya yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/eventcapture.html)
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>eventCapture</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <div id="status"></div>
+        <script>
+            eventCapture('keyup', function(e){
+                e.target.style = 'background-color:yellow;';
+                console.log(e.target.value);
+            });
+
+            eventCapture('click', function(e){
+                e.target.style = 'background-color:red; color:white;';
+                console.log(e.target.textContent);
+            });
+        </script>
+        <button type="button">Kaydet</button>
+    <input type="text">
+    </body>
+    </html>
+
+
+**Desteklenen olaylar:**
+
+`abort`, `afterprint`, `animationend`, `animationiteration`, `animationstart`, `beforeprint`, `beforeunload`, `blur`, `canplay`, `canplaythrough`, `change`, `click`, `cut`, `dblclick`, `drag`, `dragend`, `dragenter`, `dragstart`, `drop`, `durationchange`, `ended`, `error`, `focus`, `focusin`, `focusout`, `fullscreenchange`, `fullscreenerror`, `hashchange`, `input`, `invalid`, `keydown`, `keypress`, `keyup`, `load`, `loadeddata`, `loadedmetadata`, `loadstart`, `message`, `mousedown`, `mouseenter`, `mouseleave`, `mousemove`, `mouseover`, `mouseout`, `mouseup`, `offline`, `open`, `pagehide`, `pageshow`, `paste`, `pause`, `play`, `playing`, `popstate`, `progress`, `ratechange`, `resize`, `reset`, `scroll`, `search`, `seeked`, `seeking`, `select`, `show`, `stalled`, `storage`, `submit`, `suspend`, `timeupdate`, `toogle`, `touchcancel`, `touchend`, `touchmove`, `touchstart`, `transitionend`, `unload`, `volumechange`, `waiting`, `whee`
+
+Desteklenen olaylar hakkında daha fazla bilgi için [şu sayfayı](https://www.w3schools.com/jsref/dom_obj_event.asp) inceleyebilirsiniz.
+
+---
+
+## in_array()
+
+Belirtilen parametrenin, belirtilen dizi içinde olup olmadığını kontrol etmeye yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/in_array.html)
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>in_array</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <script>
+
+            let needle = 'aliyilmaz',
+                haystack = ["aliyilmaz", "User2", "user3", "User4"];
+            
+            if(in_array(needle, haystack)){
+                console.log('Aradığınız şey dizi içindedir.');
+            } else {
+                console.log('Aradığınız şey dizi içinde değildir.');
+            }
+
         </script>
     </body>
     </html>
