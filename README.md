@@ -1015,7 +1015,7 @@ Desteklenen olaylar hakkında daha fazla bilgi için [HTML DOM Events](https://w
 
 ---
 
-## fullScren()
+## fullScreen()
 
 Belirtilen elementin tam ekran olmasını veya tam ekrandan çıkmasını sağlar.
 
