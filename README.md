@@ -1010,7 +1010,7 @@ Belirtilen olayı yakalamaya ve ikinci parametrede belirtilen fonksiyonun içine
 
 `abort`, `afterprint`, `animationend`, `animationiteration`, `animationstart`, `beforeprint`, `beforeunload`, `blur`, `canplay`, `canplaythrough`, `change`, `click`, `cut`, `dblclick`, `drag`, `dragend`, `dragenter`, `dragstart`, `drop`, `durationchange`, `ended`, `error`, `focus`, `focusin`, `focusout`, `fullscreenchange`, `fullscreenerror`, `hashchange`, `input`, `invalid`, `keydown`, `keypress`, `keyup`, `load`, `loadeddata`, `loadedmetadata`, `loadstart`, `message`, `mousedown`, `mouseenter`, `mouseleave`, `mousemove`, `mouseover`, `mouseout`, `mouseup`, `offline`, `open`, `pagehide`, `pageshow`, `paste`, `pause`, `play`, `playing`, `popstate`, `progress`, `ratechange`, `resize`, `reset`, `scroll`, `search`, `seeked`, `seeking`, `select`, `show`, `stalled`, `storage`, `submit`, `suspend`, `timeupdate`, `toogle`, `touchcancel`, `touchend`, `touchmove`, `touchstart`, `transitionend`, `unload`, `volumechange`, `waiting`, `whee`
 
-Desteklenen olaylar hakkında daha fazla bilgi için [şu sayfayı](https://www.w3schools.com/jsref/dom_obj_event.asp) inceleyebilirsiniz.
+Desteklenen olaylar hakkında daha fazla bilgi için [HTML DOM Events](https://www.w3schools.com/jsref/dom_obj_event.asp) sayfasını inceleyebilirsiniz.
 
 ---
 
