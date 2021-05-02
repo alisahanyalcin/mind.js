@@ -975,7 +975,7 @@ Object, Json ve Array türündeki kümelerin elemanlarını, varsa anahtarların
 
 Belirtilen olayı yakalamaya ve ikinci parametrede belirtilen fonksiyonun içine atamaya yarar.
 
-[Demo](https://aliyilmaz.github.io/mindjs/examples/eventcapture.html)
+[Demo](https://aliyilmaz.github.io/mindjs/examples/eventCapture.html)
 
 
     <!DOCTYPE html>
