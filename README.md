@@ -44,6 +44,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [charCounter()](https://github.com/aliyilmaz/mind.js#charcounter)
 * [foreachArray()](https://github.com/aliyilmaz/mind.js#foreacharray)
 * [eventCapture()](https://github.com/aliyilmaz/mind.js#eventcapture)
+* [fullScreen()](https://github.com/aliyilmaz/mind.js#fullScreen)
 
 ##### Doğrulama
 
@@ -1011,6 +1012,56 @@ Belirtilen olayı yakalamaya ve ikinci parametrede belirtilen fonksiyonun içine
 `abort`, `afterprint`, `animationend`, `animationiteration`, `animationstart`, `beforeprint`, `beforeunload`, `blur`, `canplay`, `canplaythrough`, `change`, `click`, `cut`, `dblclick`, `drag`, `dragend`, `dragenter`, `dragstart`, `drop`, `durationchange`, `ended`, `error`, `focus`, `focusin`, `focusout`, `fullscreenchange`, `fullscreenerror`, `hashchange`, `input`, `invalid`, `keydown`, `keypress`, `keyup`, `load`, `loadeddata`, `loadedmetadata`, `loadstart`, `message`, `mousedown`, `mouseenter`, `mouseleave`, `mousemove`, `mouseover`, `mouseout`, `mouseup`, `offline`, `open`, `pagehide`, `pageshow`, `paste`, `pause`, `play`, `playing`, `popstate`, `progress`, `ratechange`, `resize`, `reset`, `scroll`, `search`, `seeked`, `seeking`, `select`, `show`, `stalled`, `storage`, `submit`, `suspend`, `timeupdate`, `toogle`, `touchcancel`, `touchend`, `touchmove`, `touchstart`, `transitionend`, `unload`, `volumechange`, `waiting`, `whee`
 
 Desteklenen olaylar hakkında daha fazla bilgi için [HTML DOM Events](https://www.w3schools.com/jsref/dom_obj_event.asp) sayfasını inceleyebilirsiniz.
+
+---
+
+## fullScren()
+
+Belirtilen elementin tam ekran olmasını veya tam ekrandan çıkmasını sağlar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/fullScreen.html)
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>fullScreen</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+        <style>
+            body{
+                max-width: 800px;
+                margin: 20px auto;
+            }
+            .box{
+                background-color: aquamarine; padding: 50px; float: left; height: 270px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <h3>Tam ekran video için</h3>
+            <button id="video-fullscreen">TIKLAYIN</button><br><br>
+            <iframe src="https://www.youtube.com/embed/yJuV8PDwvC8?list=PLK3vE-kbJTOMU-JJWOXMYSxVBabtrRLEX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div id="element" class="box">
+            <h3>Tam ekran element için</h3>
+            <button id="element-fullscreen">TIKLAYIN</button>
+        </div>
+
+        <script>
+            clickItem('button#video-fullscreen', function(){
+                fullScreen('iframe');
+            });
+            clickItem('button#element-fullscreen', function(){
+                fullScreen('div#element');
+            })
+        </script>
+    </body>
+    </html>
 
 ---
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fullScreen</title>
+    <link rel="shortcut icon" href="#">
+    <script src="../src/mind.js"></script>
+    <style>
+        body{
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .box{
+            background-color: aquamarine; padding: 50px; float: left; height: 270px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>Tam ekran video için</h3>
+        <button id="video-fullscreen">TIKLAYIN</button><br><br>
+        <iframe src="https://www.youtube.com/embed/yJuV8PDwvC8?list=PLK3vE-kbJTOMU-JJWOXMYSxVBabtrRLEX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div id="element" class="box">
+        <h3>Tam ekran element için</h3>
+        <button id="element-fullscreen">TIKLAYIN</button>
+    </div>
+
+    <script>
+        clickItem('button#video-fullscreen', function(){
+            fullScreen('iframe');
+        });
+        clickItem('button#element-fullscreen', function(){
+            fullScreen('div#element');
+        })
+    </script>
+</body>
+</html>

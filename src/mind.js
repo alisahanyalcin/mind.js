@@ -1,7 +1,7 @@
 /**
  *
  * @package    mind.js
- * @version    Release: 1.2.1
+ * @version    Release: 1.2.3
  * @license    GPL3
  * @author     Ali YILMAZ <aliyilmaz.work@gmail.com>
  * @category   Javascript Framework, Basic web development kit.
@@ -354,6 +354,36 @@ function eventCapture(event, callback){
     if(in_array(event, events)){
         document.addEventListener(event, callback, true);
     }
+}
+
+function fullScreen(element=null){
+
+    if(element !== null){
+        if(document.fullscreenElement === null){
+            let elements = document.querySelectorAll(element);
+            for (var i = 0; i < elements.length; i++){
+                if (elements[i].requestFullscreen) {
+                    elements[i].requestFullscreen();
+                } else if (elements[i].webkitRequestFullscreen) { /* Safari */
+                    elements[i].webkitRequestFullscreen();
+                } else if (elements[i].msRequestFullscreen) { /* IE11 */
+                    elements[i].msRequestFullscreen();
+                }
+                
+            };
+        } 
+    } 
+    
+    if(document.fullscreenElement !== null){
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE11 */
+            document.msExitFullscreen();
+        }
+    }
+    
 }
 
 function in_array(needle, haystack){
