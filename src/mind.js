@@ -1,7 +1,7 @@
 /**
  *
  * @package    mind.js
- * @version    Release: 1.2.2
+ * @version    Release: 1.2.3
  * @license    GPL3
  * @author     Ali YILMAZ <aliyilmaz.work@gmail.com>
  * @category   Javascript Framework, Basic web development kit.
@@ -224,6 +224,13 @@ function itemSetAttr(element, name, value){
     };
 }
 
+function itemRemoveAttr(element, name){
+    let elements = document.querySelectorAll(element);
+    for(var i = 0; i<elements.length; i++){
+        elements[i].removeAttribute(name);
+    };
+}
+
 function hideItem(element, callback){
     let elements = document.querySelectorAll(element);
     for(var i = 0; i<elements.length; i++){
@@ -384,6 +391,71 @@ function fullScreen(element=null){
         }
     }
     
+}
+
+function imageInsert(element, options){
+
+    let byteStatus = [];
+    let typeStatus = [];
+    let imageTypeList = ['image/png', 'image/gif', 'image/jpeg'];
+    var imageFiles = element.files;	
+    var imageAttrs = options.imageAttr;	
+    
+    for (let index = 0; index < imageFiles.length; index++) {
+        
+        if(!in_array(imageFiles[index].type, imageTypeList)){
+            typeStatus.push(false);
+        }
+
+        if(imageFiles[index].size>options.size.byte){
+            byteStatus.push(false);
+        } 
+    }
+
+    if(options.size.total<imageFiles.length){
+        changeContent(options.input, '');
+        changeContent(options.success.element, '');
+        changeContent(options.error.byte.element, '');
+        changeContent(options.error.type.element, '');
+        changeContent(options.error.total.element, options.error.total.message);
+    } else {
+
+        // type
+        if(!in_array(false, typeStatus)){
+            // byte
+            if(in_array(false, byteStatus)){
+                element.value = "";
+                changeContent(options.success.element, '');
+                changeContent(options.error.type.element, '');
+                changeContent(options.error.byte.element, options.error.byte.message);
+            } else {
+                changeContent(options.output, '');
+                changeContent(options.error.type.element, '');
+                changeContent(options.success.element, options.success.message);
+    
+                for (let index = 0; index < imageFiles.length; index++) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        
+                        appendItem(options.output, '<img src="'+e.target.result+'">');
+                        
+                        for (let attrIndex = 0; attrIndex < imageAttrs.length; attrIndex++) {
+                            itemSetAttr('img', imageAttrs[attrIndex].name, imageAttrs[attrIndex].value);
+                        }
+                    }
+                    reader.readAsDataURL(imageFiles[index]);
+                }        
+    
+            }
+        } else {
+            changeContent(options.input, '');
+            changeContent(options.success.element, '');
+            changeContent(options.error.byte.element, '');
+            changeContent(options.error.type.element, options.error.type.message);
+        }
+
+    }
+
 }
 
 function in_array(needle, haystack){

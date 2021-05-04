@@ -31,6 +31,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [changeContent()](https://github.com/aliyilmaz/mind.js#changecontent)
 * [copyItem()](https://github.com/aliyilmaz/mind.js#copyitem)
 * [itemSetAttr()](https://github.com/aliyilmaz/mind.js#itemsetattr)
+* [itemRemoveAttr()](https://github.com/aliyilmaz/mind.js#itemremoveattr)
 * [hideItem()](https://github.com/aliyilmaz/mind.js#hideitem)
 * [showItem()](https://github.com/aliyilmaz/mind.js#showitem)
 * [removeItem()](https://github.com/aliyilmaz/mind.js#removeitem)
@@ -45,6 +46,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [foreachArray()](https://github.com/aliyilmaz/mind.js#foreacharray)
 * [eventCapture()](https://github.com/aliyilmaz/mind.js#eventcapture)
 * [fullScreen()](https://github.com/aliyilmaz/mind.js#fullScreen)
+* [imageInsert()](https://github.com/aliyilmaz/mind.js#imageinsert)
 
 ##### Doğrulama
 
@@ -596,6 +598,39 @@ HTML element(ler)ine alt özellik belirtmeye yarar.
 
 ---
 
+## itemRemoveAttr()
+
+HTML element(ler)inin alt özelliklerini kaldırmaya yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/itemRemoveAttr.html)
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>itemRemoveAttr</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <input type="text"><br>
+        <input id="key" type="text" maxlength="5"><br>
+        <textarea id="key1" cols="30" rows="10" maxlength="5"></textarea><br>
+        <p><textarea id="key1" cols="30" rows="10" maxlength="5"></textarea></p>
+
+        <div id="status"></div>
+        <script>
+            itemRemoveAttr('input, input#key, textarea#key1', 'maxlength');
+            
+        </script>
+    </body>
+    </html>
+
+
+---
+
 ## hideItem()
 
 Belirtilen element(ler)i gizlemeye yarar.
@@ -1062,6 +1097,90 @@ Belirtilen elementin tam ekran olmasını veya tam ekrandan çıkmasını sağla
         </script>
     </body>
     </html>
+
+
+---
+
+## imageInsert()
+
+Bir HTML sayfasında file alt özelliğine sahip elementi kullanarak seçilen görsel(ler)i, belirtilen HTML element(ler)ine eklemeye yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/imageInsert.html)
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>imageInsert</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <input id="file" type="file">
+        <input id="files" type="file" multiple>
+        <br>
+        <div></div>
+        <br>
+        <strong style="color: green;" id="success"></strong><br>
+        <strong style="color: red;" id="error"></strong><br><hr>
+        <style>
+            .img-thumbnail{
+                object-fit: cover;
+                width: 100px;
+                height: 100px;
+                border-radius: 100px;
+                margin:2px;
+            }
+        </style>
+        <script>
+            let options = {
+                'size':{
+                    'byte':512000, // byte cinsinden en fazla boyut
+                    'total':2 // En fazla seçilebilecek görsel adedi
+                },
+                'error':{
+                    'type':{
+                        'element':'strong#error', // Görsel olmayan seçimlere ilişkin hata mesajının yansıtılacağı element(ler)
+                        'message':'Sadece görseller seçilebilir.', // Görsel olmayan seçimlere ilişkin mesaj
+                    },
+                    'byte':{
+                        'element':'strong#error', // Büyük boyutlu görsel seçimlerine ilişkin hata mesajının yansıtılacağı element(ler)
+                        'message': 'En fazla 500 KB boyutunda görsel(ler) seçilebilir.' // Büyük boyutlu seçimlere ilişkin mesaj
+                    },
+                    'total':{
+                        'element':'strong#error', // Belirtilen adedi aşan görsel seçimlerine ilişkin hata mesajının yansıtılacağı element(ler)
+                        'message':'En fazla 2 adet görsel seçilebilir.' // Belirtilen adedi aşan seçimlere ilişkin hata mesajı
+                    }
+                },
+                'success':{
+                    'element':'strong#success', // İşlemin başarılı şekilde gerçekleştiğinin yansıtıldığı element(ler)
+                    'message':'Görseller seçildi.' // İşlemin başarılı olduğunu belirten mesaj
+                },
+                'input':'input#file, input#files', // Görsel(ler)in seçileceği input(lar)
+                'output':'div', // Görsel(ler)in yükleneceği element(ler)
+                'imageAttr':[
+                    {
+                        'name':'class', // Görsel element(ler)ine tanımlanması istenen özellik adı
+                        'value':'img-thumbnail' // Görsel element(ler)ine atanan özelliğin değer(ler)i
+                    },
+                    {
+                        'name':'style', 
+                        'value':'border-right: 5px solid #aaa;'
+                    }
+                ]
+                
+            };
+
+            changeItem('input', function(e){
+                imageInsert(e, options);
+            });
+        
+        </script>
+    </body>
+    </html>
+
 
 ---
 
