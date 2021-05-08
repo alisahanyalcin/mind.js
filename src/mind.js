@@ -1,7 +1,7 @@
 /**
  *
  * @package    mind.js
- * @version    Release: 1.2.3
+ * @version    Release: 1.2.4
  * @license    GPL3
  * @author     Ali YILMAZ <aliyilmaz.work@gmail.com>
  * @category   Javascript Framework, Basic web development kit.
@@ -267,6 +267,14 @@ function removeItem(element, callback){
     };
 }
 
+function elementRuler(element){
+    let elements = document.querySelectorAll(element);
+    if(elements.length === 1){
+        return elements[0].naturalWidth+'x'+elements[0].naturalHeight;
+    }
+    console.log('Specify only one element.');
+}
+
 function clickItem(element, callback){
     let buttons = document.querySelectorAll(element);
     for(var i = 0; i<buttons.length; i++){
@@ -395,67 +403,123 @@ function fullScreen(element=null){
 
 function imageInsert(element, options){
 
-    let byteStatus = [];
-    let typeStatus = [];
-    let imageTypeList = ['image/png', 'image/gif', 'image/jpeg'];
-    var imageFiles = element.files;	
-    var imageAttrs = options.imageAttr;	
-    
-    for (let index = 0; index < imageFiles.length; index++) {
-        
-        if(!in_array(imageFiles[index].type, imageTypeList)){
-            typeStatus.push(false);
-        }
 
-        if(imageFiles[index].size>options.size.byte){
-            byteStatus.push(false);
-        } 
+    /* -------------------------------------------------------------------------- */
+    /*                     INPUT & OUTPUT ELEMENT REQUIREMENTS                    */
+    /* -------------------------------------------------------------------------- */
+    if(!isset(options.input) || !isset(options.output)){
+        return false;
     }
-
-    if(options.size.total<imageFiles.length){
-        changeContent(options.input, '');
-        changeContent(options.success.element, '');
-        changeContent(options.error.byte.element, '');
-        changeContent(options.error.type.element, '');
-        changeContent(options.error.total.element, options.error.total.message);
-    } else {
-
-        // type
-        if(!in_array(false, typeStatus)){
-            // byte
-            if(in_array(false, byteStatus)){
-                element.value = "";
-                changeContent(options.success.element, '');
-                changeContent(options.error.type.element, '');
-                changeContent(options.error.byte.element, options.error.byte.message);
-            } else {
-                changeContent(options.output, '');
-                changeContent(options.error.type.element, '');
-                changeContent(options.success.element, options.success.message);
+    changeContent(options.output, '');
     
-                for (let index = 0; index < imageFiles.length; index++) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        
-                        appendItem(options.output, '<img src="'+e.target.result+'">');
-                        
-                        for (let attrIndex = 0; attrIndex < imageAttrs.length; attrIndex++) {
-                            itemSetAttr('img', imageAttrs[attrIndex].name, imageAttrs[attrIndex].value);
-                        }
-                    }
-                    reader.readAsDataURL(imageFiles[index]);
-                }        
-    
-            }
-        } else {
-            changeContent(options.input, '');
+    /* -------------------------------------------------------------------------- */
+    /*                           SUCCESS ELEMENT CONTROL                          */
+    /* -------------------------------------------------------------------------- */
+    if(isset(options.success)){
+        try {
             changeContent(options.success.element, '');
-            changeContent(options.error.byte.element, '');
-            changeContent(options.error.type.element, options.error.type.message);
+        } catch (error) {
+            options.success.element = undefined;
         }
-
     }
 
+
+    /* -------------------------------------------------------------------------- */
+    /*                                    ERROR                                   */
+    /* -------------------------------------------------------------------------- */
+    
+    if(isset(options.error)){
+        try {
+            changeContent(options.error.total.element, '');
+            changeContent(options.error.type.element, '');
+            changeContent(options.error.byte.element, '');
+        } catch (error) {
+            options.error.total = undefined;
+            options.error.type = undefined;
+            options.error.byte = undefined;
+        }
+    } else {
+        options.error = {};
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /*                                    RULE                                    */
+    /* -------------------------------------------------------------------------- */
+    if(isset(options.rule)){
+
+        if(isset(options.rule.total)){
+            if(options.rule.total<element.files.length){
+                if(isset(options.error.total)){
+                    changeContent(options.error.total.element, options.error.total.message);
+                }
+                changeContent(options.input, '');
+                return false;
+            }
+        }
+
+        for (let index = 0; index < element.files.length; index++) {
+
+            if(isset(options.rule.type)){
+                if(!in_array(element.files[index].type, options.rule.type)){
+                    if(isset(options.error.type)){
+                        changeContent(options.error.type.element, options.error.type.message);
+                    }
+                    changeContent(options.input, '');
+                    return false;
+                }
+            }
+
+            if(isset(options.rule.byte)){
+                if(element.files[index].size>options.rule.byte){
+                    if(isset(options.error.type)){
+                        changeContent(options.error.byte.element, options.error.byte.message);
+                    }
+                    changeContent(options.input, '');
+                    return false;
+                }
+            }
+
+        }
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /*                                   INSERT                                   */
+    /* -------------------------------------------------------------------------- */    
+    for (let index = 0; index < element.files.length; index++) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            
+            appendItem(options.output, '<img src="'+e.target.result+'">');
+            
+            /* -------------------------------------------------------------------------- */
+            /*                            ELEMENT ATTR CONTROL                            */
+            /* -------------------------------------------------------------------------- */
+            if(isset(options.elementAttr)){
+                for (let attrIndex = 0; attrIndex < options.elementAttr.length; attrIndex++) {
+                    itemSetAttr('img', options.elementAttr[attrIndex].name, options.elementAttr[attrIndex].value);
+                }
+            }
+        }
+        reader.readAsDataURL(element.files[index]);
+    }        
+
+    /* -------------------------------------------------------------------------- */
+    /*                                   SUCCESS                                  */
+    /* -------------------------------------------------------------------------- */
+    if(isset(options.success)){
+        if(isset(options.success.element) && isset(options.success.message)){
+            changeContent(options.success.element, options.success.message);
+        }
+    }
+
+}
+
+function isset(str){
+    if(str === undefined){
+        return false;
+    } else {
+        return true;
+    }
 }
 
 function in_array(needle, haystack){

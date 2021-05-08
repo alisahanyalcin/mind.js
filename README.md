@@ -35,6 +35,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [hideItem()](https://github.com/aliyilmaz/mind.js#hideitem)
 * [showItem()](https://github.com/aliyilmaz/mind.js#showitem)
 * [removeItem()](https://github.com/aliyilmaz/mind.js#removeitem)
+* [elementRuler()](https://github.com/aliyilmaz/mind.js#elementruler)
 
 ##### Olaylar
 
@@ -50,6 +51,7 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 
 ##### Doğrulama
 
+* [isset()](https://github.com/aliyilmaz/mind.js#isset)
 * [in_array()](https://github.com/aliyilmaz/mind.js#in_array)
 * [is_function()](https://github.com/aliyilmaz/mind.js#is_function)
 * [is_string()](https://github.com/aliyilmaz/mind.js#is_string)
@@ -730,6 +732,35 @@ Belirtilen element(ler)i kaldırmaya yarar.
 
 ---
 
+## elementRuler()
+
+Belirtilen ve sayfada bir adet bulunan elementin ölçülerini, **Genişlik**x**Yükseklik** söz diziminde geri döndürür.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/elementRuler.html)
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>elementRuler</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <img src="https://avatars.githubusercontent.com/u/43772498?v=4" alt="">
+        <img src="https://avatars.githubusercontent.com/u/1106995?v=4" alt="">
+        <script>
+
+            console.log(elementRuler('img[src="https://avatars.githubusercontent.com/u/43772498?v=4"]'));
+
+        </script>
+    </body>
+    </html>
+
+---
+
 ## clickItem()
 
 Belirtilen element(ler)in tıklamasını yakalamaya yarar.
@@ -1103,7 +1134,7 @@ Belirtilen elementin tam ekran olmasını veya tam ekrandan çıkmasını sağla
 
 ## imageInsert()
 
-Bir HTML sayfasında file alt özelliğine sahip elementi kullanarak seçilen görsel(ler)i, belirtilen HTML element(ler)ine eklemeye yarar.
+Bir HTML sayfasında file alt özelliğine sahip elementi kullanarak seçilen görsel(ler)i, belirtilen HTML element(ler)ine eklemeye yarar. Sadece `options` içindeki `input` ve `output`'un belirtilme zorunluluğu vardır.
 
 [Demo](https://aliyilmaz.github.io/mindjs/examples/imageInsert.html)
 
@@ -1123,54 +1154,55 @@ Bir HTML sayfasında file alt özelliğine sahip elementi kullanarak seçilen g�
         <br>
         <div></div>
         <br>
-        <strong style="color: green;" id="success"></strong><br>
-        <strong style="color: red;" id="error"></strong><br><hr>
+        <strong id="status"></strong><br>
+        <strong id="status1"></strong><br>
         <style>
             .img-thumbnail{
                 object-fit: cover;
-                width: 100px;
-                height: 100px;
-                border-radius: 100px;
-                margin:2px;
+                width: 200px;
+                height: 200px;
+                border-radius: 200px;
+                margin:10px;
             }
         </style>
         <script>
             let options = {
-                'size':{
-                    'byte':512000, // byte cinsinden en fazla boyut
-                    'total':2 // En fazla seçilebilecek görsel adedi
+                'input':'input#file, input#files',  // *
+                'output':'div',                     // *
+                'rule':{
+                    'byte':512000,
+                    'total':3,
+                    'type':['image/png', 'image/gif', 'image/jpeg']
                 },
-                'error':{
-                    'type':{
-                        'element':'strong#error', // Görsel olmayan seçimlere ilişkin hata mesajının yansıtılacağı element(ler)
-                        'message':'Sadece görseller seçilebilir.', // Görsel olmayan seçimlere ilişkin mesaj
-                    },
-                    'byte':{
-                        'element':'strong#error', // Büyük boyutlu görsel seçimlerine ilişkin hata mesajının yansıtılacağı element(ler)
-                        'message': 'En fazla 500 KB boyutunda görsel(ler) seçilebilir.' // Büyük boyutlu seçimlere ilişkin mesaj
-                    },
-                    'total':{
-                        'element':'strong#error', // Belirtilen adedi aşan görsel seçimlerine ilişkin hata mesajının yansıtılacağı element(ler)
-                        'message':'En fazla 2 adet görsel seçilebilir.' // Belirtilen adedi aşan seçimlere ilişkin hata mesajı
-                    }
-                },
-                'success':{
-                    'element':'strong#success', // İşlemin başarılı şekilde gerçekleştiğinin yansıtıldığı element(ler)
-                    'message':'Görseller seçildi.' // İşlemin başarılı olduğunu belirten mesaj
-                },
-                'input':'input#file, input#files', // Görsel(ler)in seçileceği input(lar)
-                'output':'div', // Görsel(ler)in yükleneceği element(ler)
-                'imageAttr':[
+                'elementAttr':[
                     {
-                        'name':'class', // Görsel element(ler)ine tanımlanması istenen özellik adı
-                        'value':'img-thumbnail' // Görsel element(ler)ine atanan özelliğin değer(ler)i
+                        'name':'class',
+                        'value':'img-thumbnail'
                     },
                     {
                         'name':'style', 
                         'value':'border-right: 5px solid #aaa;'
                     }
-                ]
-                
+                ],
+                'success':{
+                    'element':'strong#status', 
+                    'message':'Dosyalar seçildi'
+                },
+                'error':{
+                    'type':{
+                        'element':'strong#status', 
+                        'message':'Sadece görseller seçilebilir.',
+                    },
+                    'byte':{
+                        'element':'strong#status1', 
+                        'message': 'Belirtilen dosya boyut sınırı aşılmamalıdır.' 
+                    },
+                    'total':{
+                        'element':'strong#status',
+                        'message':'En fazla 3 adet dosya seçilebilir.'
+                    }
+                }
+                                
             };
 
             changeItem('input', function(e){
@@ -1184,6 +1216,36 @@ Bir HTML sayfasında file alt özelliğine sahip elementi kullanarak seçilen g�
 
 ---
 
+## isset()
+
+Belirtilen değişkenin tanımlanıp tanımlanmadığının kontrolünü yapmaya yarar.
+
+[Demo](https://aliyilmaz.github.io/mindjs/examples/isset.html)
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>isset</title>
+        <link rel="shortcut icon" href="#">
+        <script src="../src/mind.js"></script>
+    </head>
+    <body>
+        <script>
+
+            let str;
+            if(isset(str)){
+                console.log('değişken tanımlı');
+            } else {
+                console.log('değişken tanımsız');
+            }
+
+        </script>
+    </body>
+    </html>
+
+---
 ## in_array()
 
 Belirtilen parametrenin, belirtilen dizi içinde olup olmadığını kontrol etmeye yarar.
