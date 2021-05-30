@@ -48,8 +48,8 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [eventCapture()](https://github.com/aliyilmaz/mind.js#eventcapture)
 * [fullScreen()](https://github.com/aliyilmaz/mind.js#fullScreen)
 * [imageInsert()](https://github.com/aliyilmaz/mind.js#imageinsert)
-* [selectionText()](https://github.com/aliyilmaz/mind.js#selectiontext)
 * [toggleEdit()](https://github.com/aliyilmaz/mind.js#toggleedit)
+* [selectionText()](https://github.com/aliyilmaz/mind.js#selectiontext)
 
 ##### Doğrulama
 
