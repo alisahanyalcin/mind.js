@@ -1220,7 +1220,7 @@ Bir HTML sayfasında file alt özelliğine sahip elementi kullanarak seçilen g�
 
 ## toggleEdit()
 
-Belirtilen element(ler)i tıklandığında düzenlenebilir hale getirmeye yarar.
+Belirtilen element(ler) tıklandığında düzenlenebilir hale gelmelerini sağlamaya yarar.
 
 [Demo](https://aliyilmaz.github.io/mindjs/examples/toggleEdit.html)
 
