@@ -49,7 +49,6 @@ mind.js, geliştiriciler için tasarlanmış javascript kod çerçevesidir. Proj
 * [fullScreen()](https://github.com/aliyilmaz/mind.js#fullScreen)
 * [imageInsert()](https://github.com/aliyilmaz/mind.js#imageinsert)
 * [toggleEdit()](https://github.com/aliyilmaz/mind.js#toggleedit)
-* [selectionText()](https://github.com/aliyilmaz/mind.js#selectiontext)
 
 ##### Doğrulama
 
@@ -1242,42 +1241,6 @@ Belirtilen element(ler) tıklandığında düzenlenebilir hale gelmelerini sağl
         <script>
 
             toggleEdit('div, h4');
-
-        </script>
-    </body>
-    </html>
-
----
-
-## selectionText()
-
-Belirtilen element(ler)de seçilen metinleri elde etmeye yarar.
-
-[Demo](https://aliyilmaz.github.io/mindjs/examples/selectionText.html)
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>selectionText</title>
-        <link rel="shortcut icon" href="#">
-        <script src="../src/mind.js"></script>
-    </head>
-    <body>
-        <h4>Select text</h4>
-        <div id="demo">
-            Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.
-        </div><br>
-        <h4>Selected text</h4>
-        <div id="result">
-
-        </div>
-        <script>
-
-            selectionText('div#demo, h4', function(selection){
-                changeContent('div#result', selection);
-            });
 
         </script>
     </body>
